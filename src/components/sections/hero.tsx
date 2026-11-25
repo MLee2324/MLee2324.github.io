@@ -121,17 +121,17 @@ const HeroSection = () => {
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
-                      <Link href={"#contact"}>
+                      <a href={`mailto:${config.email}`}>
                         <Button
                           variant={"outline"}
                           className="block w-full overflow-hidden"
                         >
-                          Hire Me
+                          Email Me
                         </Button>
-                      </Link>
+                      </a>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p>Let&apos;s talk</p>
+                      <p>{config.email}</p>
                     </TooltipContent>
                   </Tooltip>
                   <div className="flex items-center h-full gap-2">

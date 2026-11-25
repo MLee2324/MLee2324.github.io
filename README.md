@@ -22,6 +22,7 @@ pnpm build      # static site in ./out
 | `src/data/about.ts` | About section: intro, facts, highlights, current courses |
 | `src/data/constants.ts` | Tech Stack skills and work experience (hidden while empty) |
 | `src/data/projects.tsx` | Projects, screenshots, tech stacks |
+| `src/data/publications.ts` | Papers, posters, and talks (Publications section) |
 | `public/assets/me.jpg` | Hero photo (initials show until it exists) |
 | `public/` | Résumé/CV PDFs; set `resume` / `cv` in `config.ts` to show them |
 
@@ -31,14 +32,13 @@ Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site 
 
 Optional repository variables (**Settings → Secrets and variables → Actions → Variables**):
 
-- `NEXT_PUBLIC_FORM_ENDPOINT`: a form service URL (for example Formspree) for the contact form. Without it, the form opens the visitor's email client.
 - `NEXT_PUBLIC_GA_ID`: Google Analytics measurement ID.
 
 ## Differences from the template
 
 GitHub Pages has no server, so:
 
-- The contact form no longer uses Resend; see `NEXT_PUBLIC_FORM_ENDPOINT` above.
+- The contact section and form were removed; visitors reach me by email.
 - The GitHub stars count in the header is fetched at build time.
 - The custom HTTP headers were removed (Pages doesn't support them).
 - Live cursors, chat, and the multiplayer game stay off unless `NEXT_PUBLIC_WS_URL` points at a realtime server you run.

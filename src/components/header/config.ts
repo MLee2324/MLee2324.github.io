@@ -7,9 +7,9 @@ const links: Link[] = [
   { title: "Skills", href: "/#skills" },
   { title: "Experience", href: "/#experience" },
   { title: "Projects", href: "/#projects" },
+  { title: "Publications", href: "/#publications" },
   ...(config.resume ? [{ title: "Résumé", href: "/resume/" }] : []),
   ...(config.cv ? [{ title: "CV", href: "/cv/" }] : []),
-  { title: "Contact", href: "/#contact" },
 ];
 
 export { links };

@@ -31,7 +31,6 @@ jobs:
 
       - run: pnpm build
         env:
-          NEXT_PUBLIC_FORM_ENDPOINT: ${{ vars.NEXT_PUBLIC_FORM_ENDPOINT }}
           NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
 
       - uses: actions/upload-pages-artifact@v3

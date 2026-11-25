@@ -18,7 +18,7 @@ function SmoothScroll({ children, isInsideModal = false }: LenisProps) {
   // smooths scrolling on its own loop while ScrollTrigger samples independently,
   // so a fast flick jumps past a trigger's start line unevaluated and its
   // onEnter/onLeaveBack (which drive the keyboard's active-section state) never
-  // fire — leaving section animations like the contact keycap "float" stuck.
+  // fire — leaving scroll-triggered section animations stuck.
   const { reducedMotion } = usePerfProfile();
   const lenis = useLenis(() => ScrollTrigger.update());
 

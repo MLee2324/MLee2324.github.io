@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import SkillsSection from "@/components/sections/skills";
 import ExperienceSection from "@/components/sections/experience";
 import ProjectsSection from "@/components/sections/projects";
-import ContactSection from "@/components/sections/contact";
+import PublicationsSection from "@/components/sections/publications";
 import HeroSection from "@/components/sections/hero";
 import AboutSection from "@/components/sections/about";
 
@@ -19,7 +19,7 @@ function MainPage() {
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
-        <ContactSection />
+        <PublicationsSection />
       </main>
     </SmoothScroll>
   );
