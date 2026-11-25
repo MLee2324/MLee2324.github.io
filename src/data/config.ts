@@ -1,19 +1,22 @@
 const config = {
   title: "Matthew Lee | Computer Engineering",
   description: {
-    long: "Portfolio of Matthew Lee, a Computer Engineering student focused on embedded systems, computer vision, and deep learning. Graduating December 2026 and open to relocation.",
+    long: "Portfolio of Matthew Lee, a Computer Engineering student at the University of Utah exploring AI-powered assistive technology for blind and low-vision people.",
     short:
-      "Computer Engineering student focused on embedded systems, computer vision, and deep learning.",
+      "Computer Engineering student exploring AI-powered assistive technology with computer vision, multimodal learning, and human-robot interaction.",
   },
   keywords: [
     "Matthew Lee",
     "portfolio",
     "computer engineering",
-    "embedded systems",
+    "University of Utah",
+    "assistive technology",
+    "accessibility",
+    "blind and low-vision",
     "computer vision",
-    "deep learning",
+    "multimodal learning",
+    "human-robot interaction",
     "machine learning",
-    "robotics",
     "Salt Lake City",
   ],
   author: "Matthew Lee",
