@@ -10,13 +10,14 @@ const ExperienceSection = () => {
   if (EXPERIENCE.length === 0) return null;
   return (
     <SectionWrapper
+      id="experience"
       className="flex flex-col items-center justify-center min-h-[120vh] py-20"
     >
       <div className="w-full max-w-4xl px-4 md:px-8 mx-auto">
         <SectionHeader
           id="experience"
           title="Experience"
-          desc="My professional journey."
+          desc="Research experience at the University of Utah."
           className="mb-12 md:mb-20 mt-0"
         />
 
