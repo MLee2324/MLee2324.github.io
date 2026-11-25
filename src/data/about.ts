@@ -8,13 +8,13 @@ export const ABOUT = {
   facts: [
     { label: "Degree", value: "Computer Engineering" },
     { label: "Graduation", value: "December 2026" },
-    { label: "Interests", value: "Embedded, CV, ML" },
+    { label: "Interests", value: "Assistive AI, computer vision, multimodal learning" },
     { label: "Location", value: "Salt Lake City, UT · Open to relocation" },
   ],
   highlights: [
     { label: "Engineering GPA", value: "3.494 / 4.0", sub: "Dean's List" },
     { label: "Senior Capstone", value: "Evaluating ASR Systems", sub: "Automatic speech recognition" },
-    { label: "Focus Areas", value: "AI + Embedded", sub: "Hardware-aware systems" },
+    { label: "Focus Areas", value: "Assistive AI", sub: "For blind and low-vision people" },
   ],
   courses: [
     {
