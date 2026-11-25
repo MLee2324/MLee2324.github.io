@@ -23,7 +23,6 @@ const ProjectsSection = () => {
     <SectionWrapper id="projects" className="max-w-7xl mx-auto md:min-h-[130vh] px-4">
       <SectionHeader id="projects" title="Projects" />
       {projects.length === 0 ? (
-        // Kept on the page while empty: the 3D keyboard animates off #projects.
         <p className="mx-auto max-w-xl text-center text-muted-foreground">
           Project write-ups are on the way. In the meantime, see my work on{" "}
           <a

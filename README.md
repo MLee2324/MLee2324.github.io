@@ -2,7 +2,7 @@
 
 My portfolio site, live at https://mlee2324.github.io.
 
-Built from [Naresh Khatri's 3d-portfolio](https://github.com/Naresh-Khatri/3d-portfolio) template (MIT), adapted to run as a static site on GitHub Pages.
+Built from [Naresh Khatri's 3d-portfolio](https://github.com/Naresh-Khatri/3d-portfolio) template (MIT), adapted to run as a static site on GitHub Pages. The 3D keyboard and loading screen from the template were removed; the hero shows a photo instead.
 
 ## Develop
 
@@ -18,11 +18,11 @@ pnpm build      # static site in ./out
 
 | File | What it holds |
 |---|---|
-| `src/data/config.ts` | Name, headline, SEO text, email, social links, résumé/CV paths |
+| `src/data/config.ts` | Name, headline, SEO text, email, social links, hero photo, résumé/CV paths |
 | `src/data/about.ts` | About section: intro, facts, highlights, current courses |
-| `src/data/constants.ts` | Skills (3D keyboard keys) and work experience (hidden while empty) |
+| `src/data/constants.ts` | Tech Stack skills and work experience (hidden while empty) |
 | `src/data/projects.tsx` | Projects, screenshots, tech stacks |
-| `public/assets/keyboard/logos/` | White SVG logos for the keycaps |
+| `public/assets/me.jpg` | Hero photo (initials show until it exists) |
 | `public/` | Résumé/CV PDFs; set `resume` / `cv` in `config.ts` to show them |
 
 ## Deploy

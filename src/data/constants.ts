@@ -1,5 +1,4 @@
-// Skills shown on the 3D keyboard, in key order (6 per row).
-// Keycap logos live in public/assets/keyboard/logos (white SVGs from simpleicons.org).
+// Skills shown in the Tech Stack grid, in display order.
 export enum SkillNames {
   PYTHON = "python",
   C = "c",
@@ -20,12 +19,6 @@ export type Skill = {
   shortDescription: string;
   color: string;
   icon: string;
-  /** Optional local artwork for the 3D key; falls back to icon. */
-  keyboardIcon?: string;
-  /** Plastic color of the 3D keycap; independent of the HTML brand accent. */
-  keyboardColor?: string;
-  /** Browser KeyboardEvent.code, e.g. KeyJ. Defaults to the displayed key order. */
-  shortcut?: string;
 };
 export const SKILLS: Record<SkillNames, Skill> = {
   [SkillNames.PYTHON]: {
@@ -35,8 +28,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "the glue for my CV and ML experiments",
     color: "#3776ab",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/python.svg",
-    keyboardColor: "#3776ab",
   },
   [SkillNames.C]: {
     id: 2,
@@ -45,8 +36,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "close to the metal for microcontroller firmware",
     color: "#a8b9cc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/c.svg",
-    keyboardColor: "#5c6bc0",
   },
   [SkillNames.CPP]: {
     id: 3,
@@ -55,8 +44,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "performance-critical code and embedded systems",
     color: "#00599c",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/cplusplus.svg",
-    keyboardColor: "#00599c",
   },
   [SkillNames.PYTORCH]: {
     id: 4,
@@ -65,8 +52,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "training and evaluating deep learning models",
     color: "#ee4c2c",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/pytorch.svg",
-    keyboardColor: "#ee4c2c",
   },
   [SkillNames.OPENCV]: {
     id: 5,
@@ -75,8 +60,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "image processing, features, and camera geometry",
     color: "#5c3ee8",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/opencv.svg",
-    keyboardColor: "#5c3ee8",
   },
   [SkillNames.NUMPY]: {
     id: 6,
@@ -85,8 +68,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "arrays, linear algebra, and signal processing",
     color: "#4dabcf",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/numpy.svg",
-    keyboardColor: "#013243",
   },
   [SkillNames.JUPYTER]: {
     id: 7,
@@ -95,8 +76,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "where experiments get explored and plotted",
     color: "#f37626",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/jupyter.svg",
-    keyboardColor: "#f37626",
   },
   [SkillNames.ARDUINO]: {
     id: 8,
@@ -105,8 +84,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "sensors, actuators, and quick hardware prototypes",
     color: "#00878f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/arduino.svg",
-    keyboardColor: "#00878f",
   },
   [SkillNames.RASPBERRY_PI]: {
     id: 9,
@@ -115,8 +92,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "embedded Linux for robotics and vision on the edge",
     color: "#a22846",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/raspberrypi.svg",
-    keyboardColor: "#a22846",
   },
   [SkillNames.LINUX]: {
     id: 10,
@@ -125,8 +100,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "my default environment for development",
     color: "#fff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/linux.svg",
-    keyboardColor: "#333537",
   },
   [SkillNames.GIT]: {
     id: 11,
@@ -135,8 +108,6 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription: "version control for every project",
     color: "#f1502f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    keyboardIcon: "/assets/keyboard/logos/git.svg",
-    keyboardColor: "#ff4622",
   },
 };
 

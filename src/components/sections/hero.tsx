@@ -15,6 +15,7 @@ import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 import { config } from "@/data/config";
 
 import SectionWrapper from "../ui/section-wrapper";
+import HeroPhoto from "../hero-photo";
 
 const HERO_SOCIALS = [
   { name: "GitHub", href: config.social.github, Icon: SiGithub },
@@ -33,12 +34,15 @@ const HeroSection = () => {
             "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
             "col-span-1",
             "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "pt-28 sm:pb-16 md:p-20 lg:p-24 xl:p-28"
+            "px-6 pt-28 sm:pb-16 md:p-20 lg:p-24 xl:p-28"
           )}
         >
           {!isLoading && (
             <div className="flex flex-col">
               <div>
+                <BlurIn delay={0.5} className="md:hidden">
+                  <HeroPhoto className="mb-6 w-32" />
+                </BlurIn>
                 <BlurIn delay={0.7}>
                   <p
                     className={cn(
@@ -57,7 +61,7 @@ const HeroSection = () => {
                       <h1
                         className={cn(
                           "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
+                          "font-bold text-6xl sm:text-7xl lg:text-8xl",
                           "cursor-default text-edge-outline font-display "
                         )}
                       >
@@ -132,7 +136,13 @@ const HeroSection = () => {
             </div>
           )}
         </div>
-        <div className="grid col-span-1"></div>
+        <div className="hidden md:flex col-span-1 items-center justify-center h-[calc(100dvh-4rem)] z-[2] p-12 lg:p-20">
+          {!isLoading && (
+            <BlurIn delay={1.2} className="w-full max-w-[420px]">
+              <HeroPhoto className="w-full" />
+            </BlurIn>
+          )}
+        </div>
       </div>
       <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
         <ScrollDownIcon />
