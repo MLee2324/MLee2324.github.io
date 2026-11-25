@@ -3,19 +3,26 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { Download, ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ResumeDoodle from "./resume-doodle";
+import { Download, ArrowLeft, ExternalLink } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 import { config } from "@/data/config";
+import { cn } from "@/lib/utils";
 
-// Set config.resume (and optionally config.cv) to a PDF path in /public.
-const RESUME_PATH = config.resume;
+export type DocKind = "resume" | "cv";
 
-export default function ResumeView() {
-  if (!RESUME_PATH) {
+const DOCS: Record<DocKind, { label: string; href: string; path: string | null }> = {
+  resume: { label: "Résumé", href: "/resume/", path: config.resume },
+  cv: { label: "CV", href: "/cv/", path: config.cv },
+};
+
+export default function ResumeView({ doc }: { doc: DocKind }) {
+  const current = DOCS[doc];
+  const available = (Object.keys(DOCS) as DocKind[]).filter((kind) => DOCS[kind].path);
+
+  if (!current.path) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center font-sans">
-        <p className="text-lg text-muted-foreground">My résumé will be posted here soon.</p>
+        <p className="text-lg text-muted-foreground">My {current.label.toLowerCase()} will be posted here soon.</p>
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -26,23 +33,15 @@ export default function ResumeView() {
       </div>
     );
   }
+
   return (
     <div className="flex min-h-screen flex-col font-sans">
-      {/* Hide the global nav on mobile, only while this page is mounted */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "@media (max-width: 767px){ header { display: none !important; } }",
-        }}
-      />
-
-      {/* Top bar: back (left) + download (right) */}
-      <div className="mx-auto w-full max-w-4xl shrink-0 px-4 pt-16 md:pt-24">
+      <div className="mx-auto w-full max-w-4xl shrink-0 px-4 pt-20 md:pt-24">
         <motion.div
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 flex items-center justify-between gap-4"
+          className="mb-4 flex flex-wrap items-center justify-between gap-4"
         >
           <Link
             href="/"
@@ -51,40 +50,57 @@ export default function ResumeView() {
             <ArrowLeft className="h-4 w-4" />
             Back to portfolio
           </Link>
-          <div className="flex gap-2">
-          {config.cv && (
-            <Button variant="outline">
-              <a href={config.cv} target="_blank" rel="noopener noreferrer" className="flex gap-2 text-sm">
-                View CV
-              </a>
-            </Button>
+
+          {available.length > 1 && (
+            <nav aria-label="Documents" className="flex rounded-full border border-border p-1 text-sm">
+              {available.map((kind) => (
+                <Link
+                  key={kind}
+                  href={DOCS[kind].href}
+                  aria-current={kind === doc ? "page" : undefined}
+                  className={cn(
+                    "rounded-full px-4 py-1.5 transition-colors",
+                    kind === doc
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {DOCS[kind].label}
+                </Link>
+              ))}
+            </nav>
           )}
-          <Button>
+
+          <div className="flex gap-2">
             <a
-              href={RESUME_PATH}
-              download
-              className="flex gap-2 text-sm transition-colors hover:text-foreground"
+              href={current.path}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ variant: "outline" }), "flex gap-2 text-sm")}
             >
-              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              <ExternalLink className="h-4 w-4" />
+              Open
+            </a>
+            <a href={current.path} download className={cn(buttonVariants(), "flex gap-2 text-sm")}>
+              <Download className="h-4 w-4" />
               Download PDF
             </a>
-          </Button>
           </div>
         </motion.div>
       </div>
 
-      {/* PDF viewer — centered on mobile (short A4 card), top-aligned on desktop (tall) */}
-      <div className="mx-auto flex w-full max-w-4xl flex-1 items-center justify-center px-2 pb-6 md:items-start md:px-4 md:pb-24">
-        {/* opacity-only animation: a transformed ancestor would trap the fixed doodle FAB */}
+      <div className="mx-auto flex w-full max-w-4xl flex-1 justify-center px-2 pb-6 md:px-4 md:pb-24">
         <motion.div
+          key={doc}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="aspect-[210/297] w-full overflow-hidden rounded-2xl bg-white shadow-xl"
         >
-          <ResumeDoodle
-            src={`${RESUME_PATH}#toolbar=0&navpanes=0&view=FitH`}
-            title={`${config.author} — Résumé`}
+          <iframe
+            src={`${current.path}#toolbar=0&navpanes=0&view=FitH`}
+            title={`${config.author} — ${current.label}`}
+            className="h-full w-full"
           />
         </motion.div>
       </div>

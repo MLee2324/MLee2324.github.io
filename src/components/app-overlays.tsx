@@ -15,7 +15,7 @@ export default function AppOverlays() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   // The résumé route disables the elastic cursor (keeps the particle bg).
-  const isResume = pathname?.startsWith("/resume") ?? false;
+  const isResume = (pathname?.startsWith("/resume") || pathname?.startsWith("/cv")) ?? false;
 
   const { particleCount, maxDpr, disableDecorative } = usePerfProfile();
 

@@ -7,7 +7,13 @@ import { cn } from "@/lib/utils";
 // Shows config.photo once it has loaded; shows initials until then, or for
 // good if the photo is unset or missing. Loading through `new Image()` avoids
 // missing an error event that fires before hydration.
-export default function HeroPhoto({ className }: { className?: string }) {
+export default function HeroPhoto({
+  className,
+  initialsClassName = "text-7xl",
+}: {
+  className?: string;
+  initialsClassName?: string;
+}) {
   const [loaded, setLoaded] = useState(false);
   const initials = config.author
     .split(" ")
@@ -42,7 +48,10 @@ export default function HeroPhoto({ className }: { className?: string }) {
           <div
             role="img"
             aria-label={config.author}
-            className="flex h-full w-full items-center justify-center font-display text-7xl font-bold text-white/80"
+            className={cn(
+              "flex h-full w-full items-center justify-center font-display font-bold text-white/80",
+              initialsClassName
+            )}
           >
             {initials}
           </div>

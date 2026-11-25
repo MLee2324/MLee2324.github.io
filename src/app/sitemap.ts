@@ -13,5 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(config.resume
       ? [{ url: `${config.site}/resume/`, changeFrequency: "monthly" as const, priority: 0.8 }]
       : []),
+    ...(config.cv
+      ? [{ url: `${config.site}/cv/`, changeFrequency: "monthly" as const, priority: 0.7 }]
+      : []),
   ];
 }

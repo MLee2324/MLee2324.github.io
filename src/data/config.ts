@@ -27,10 +27,9 @@ const config = {
   // Hero photo in /public. Falls back to initials until the file exists.
   photo: "/assets/me.jpg" as string | null,
 
-  // PDFs in /public. Set to e.g. "/Matthew_Lee_Resume.pdf" once the file is
-  // added; while null, the Resume button is hidden and /resume shows a notice.
-  resume: null as string | null,
-  cv: null as string | null,
+  // PDFs in /public. Set one to null to hide its buttons and links.
+  resume: "/Matthew_Lee_Resume.pdf" as string | null,
+  cv: "/Matthew_Lee_CV.pdf" as string | null,
 
   // Social preview image in /public (1200x630 works well). null = none.
   ogImage: null as string | null,

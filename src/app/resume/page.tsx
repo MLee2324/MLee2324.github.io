@@ -7,5 +7,5 @@ export const metadata = {
 };
 
 export default function ResumePage() {
-  return <ResumeView />;
+  return <ResumeView doc="resume" />;
 }

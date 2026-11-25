@@ -41,7 +41,7 @@ const HeroSection = () => {
             <div className="flex flex-col">
               <div>
                 <BlurIn delay={0.5} className="md:hidden">
-                  <HeroPhoto className="mb-6 w-32" />
+                  <HeroPhoto className="mb-6 w-32" initialsClassName="text-4xl" />
                 </BlurIn>
                 <BlurIn delay={0.7}>
                   <p
@@ -96,15 +96,27 @@ const HeroSection = () => {
                 </BlurIn>
               </div>
               <div className="mt-8 flex flex-col gap-3 w-fit">
-                {config.resume && (
-                  <Link href="/resume/" className="flex-1">
-                    <BoxReveal delay={2} width="100%" >
-                      <Button className="flex items-center gap-2 w-full">
-                        <File size={24} />
-                        <p>Resume</p>
-                      </Button>
-                    </BoxReveal>
-                  </Link>
+                {(config.resume || config.cv) && (
+                  <BoxReveal delay={2} width="100%">
+                    <div className="flex gap-3">
+                      {config.resume && (
+                        <Link href="/resume/" className="flex-1">
+                          <Button className="flex items-center gap-2 w-full">
+                            <File size={20} />
+                            <p>Résumé</p>
+                          </Button>
+                        </Link>
+                      )}
+                      {config.cv && (
+                        <Link href="/cv/" className="flex-1">
+                          <Button className="flex items-center gap-2 w-full">
+                            <File size={20} />
+                            <p>CV</p>
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  </BoxReveal>
                 )}
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
