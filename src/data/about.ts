@@ -1,8 +1,10 @@
 // Content for the About section (src/components/sections/about.tsx).
 
 export const ABOUT = {
+  introLabel: "Research interests",
+  // From the Research Interests section of the CV.
   intro:
-    "I'm a Computer Engineering student focused on embedded systems, computer vision, and deep learning. I care about reliable engineering and work that can be tested beyond a demo.",
+    "I am interested in exploring how AI-powered assistive technologies can improve accessibility and independence for people with disabilities, particularly blind and low-vision (BLV) individuals. I hope to apply computer vision, multimodal learning, and human-robot interaction to develop systems that help people better navigate their surroundings and perform everyday tasks with greater ease and confidence.",
   facts: [
     { label: "Degree", value: "Computer Engineering" },
     { label: "Graduation", value: "December 2026" },

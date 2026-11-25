@@ -31,7 +31,10 @@ const AboutSection = () => {
           <motion.div {...fadeUp(0)} className="md:col-span-3">
             <Card className={cn(cardClass, "h-full")}>
               <CardContent className="p-6 md:p-8 flex flex-col gap-6 h-full">
-                <p className="text-lg leading-relaxed text-foreground/90">{ABOUT.intro}</p>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{ABOUT.introLabel}</p>
+                  <p className="mt-3 text-lg leading-relaxed text-foreground/90">{ABOUT.intro}</p>
+                </div>
                 <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 mt-auto">
                   {ABOUT.facts.map((fact) => (
                     <div key={fact.label}>
@@ -56,10 +59,10 @@ const AboutSection = () => {
             </Card>
           </motion.div>
 
-          <div className="md:col-span-2 grid gap-4">
+          <div className="md:col-span-2 grid gap-4 md:grid-rows-3">
             {ABOUT.highlights.map((stat, i) => (
-              <motion.div key={stat.label} {...fadeUp(i + 1)}>
-                <Card className={cardClass}>
+              <motion.div key={stat.label} {...fadeUp(i + 1)} className="h-full">
+                <Card className={cn(cardClass, "h-full flex flex-col justify-center")}>
                   <CardContent className="p-5">
                     <p className="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</p>
                     <p className="mt-2 text-xl font-bold font-display">{stat.value}</p>
