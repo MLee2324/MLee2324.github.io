@@ -19,7 +19,7 @@ const config = {
   author: "Matthew Lee",
   headline: "Computer Engineering Student",
   tagline:
-    "Embedded systems, computer vision, and deep learning. I care about reliable engineering and work that can be tested beyond a demo.",
+    "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-robot interaction.",
   email: "matthewlee453@gmail.com",
   location: "Salt Lake City, UT · Open to relocation",
   site: "https://mlee2324.github.io",
