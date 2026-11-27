@@ -14,7 +14,11 @@ import {
   Moon,
   Search,
   Sun,
+  Type,
+  Contrast,
+  Underline,
 } from "lucide-react";
+import { setA11yPrefs, useA11yPrefs } from "@/lib/a11y-prefs";
 import { SiGithub } from "react-icons/si";
 import { config } from "@/data/config";
 import { links } from "@/components/header/config";
@@ -42,6 +46,7 @@ export default function CommandPalette({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const { toast } = useToast();
   const listRef = React.useRef<HTMLUListElement>(null);
+  const a11y = useA11yPrefs();
 
   React.useEffect(() => setMac(isMac()), []);
 
@@ -111,9 +116,34 @@ export default function CommandPalette({ className }: { className?: string }) {
         keywords: "theme dark light appearance",
         run: () => setTheme(resolvedTheme === "dark" ? "light" : "dark"),
       },
+      {
+        id: "text-size",
+        group: "Settings",
+        label: a11y.textSize === 2 ? "Reset text size" : "Increase text size",
+        hint: ["Default", "Large", "Larger"][a11y.textSize],
+        icon: <Type className="h-4 w-4" />,
+        keywords: "accessibility font bigger zoom larger",
+        run: () => setA11yPrefs({ textSize: a11y.textSize === 2 ? 0 : ((a11y.textSize + 1) as 1 | 2) }),
+      },
+      {
+        id: "contrast",
+        group: "Settings",
+        label: a11y.highContrast ? "Turn off high contrast" : "Turn on high contrast",
+        icon: <Contrast className="h-4 w-4" />,
+        keywords: "accessibility contrast vision",
+        run: () => setA11yPrefs({ highContrast: !a11y.highContrast }),
+      },
+      {
+        id: "underline",
+        group: "Settings",
+        label: a11y.underlineLinks ? "Stop underlining links" : "Underline links",
+        icon: <Underline className="h-4 w-4" />,
+        keywords: "accessibility links",
+        run: () => setA11yPrefs({ underlineLinks: !a11y.underlineLinks }),
+      },
     ];
     return [...sections, ...docs, ...contact, ...settings];
-  }, [router, resolvedTheme, setTheme, toast]);
+  }, [router, resolvedTheme, setTheme, toast, a11y]);
 
   const filtered = React.useMemo(() => {
     const q = query.trim().toLowerCase();

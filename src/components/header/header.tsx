@@ -13,6 +13,7 @@ import { config } from "@/data/config";
 import OnlineUsers from "../realtime/online-users";
 import { GameTrigger } from "../game/game-trigger";
 import CommandPalette from "../command-palette";
+import AccessibilityMenu from "../accessibility-menu";
 
 interface HeaderProps {
   loader?: boolean;
@@ -59,7 +60,8 @@ const Header = ({ loader, githubStars }: HeaderProps) => {
           </Button>
         </Link>
 
-        <CommandPalette className="mr-4" />
+        <CommandPalette className="mr-2" />
+        <AccessibilityMenu className="mr-4" />
         <FunnyThemeToggle className="w-6 h-6 mr-4 hidden md:flex" />
         {isHome && process.env.NEXT_PUBLIC_WS_URL && (
           <div className="flex items-center">

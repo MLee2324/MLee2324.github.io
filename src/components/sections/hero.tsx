@@ -27,18 +27,18 @@ const HeroSection = () => {
   const { isLoading } = usePreloader();
 
   return (
-    <SectionWrapper id="hero" className={cn("relative w-full h-screen")}>
+    <SectionWrapper id="hero" className={cn("relative w-full min-h-screen")}>
       <div className="grid md:grid-cols-2">
         <div
           className={cn(
-            "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
-            "col-span-1",
+            "min-h-[calc(100dvh-3rem)] md:min-h-[calc(100dvh-4rem)] z-[2]",
+            "col-span-1 min-w-0",
             "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "px-6 pt-28 sm:pb-16 md:p-20 lg:p-24 xl:p-28"
+            "px-6 pt-28 pb-24 sm:pb-16 md:p-12 lg:p-24 xl:p-28"
           )}
         >
           {!isLoading && (
-            <div className="flex flex-col">
+            <div className="flex min-w-0 max-w-full flex-col">
               <div>
                 <BlurIn delay={0.5} className="md:hidden">
                   <HeroPhoto className="mb-6 w-32" initialsClassName="text-4xl" />
@@ -47,7 +47,7 @@ const HeroSection = () => {
                   <p
                     className={cn(
                       "md:self-start mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "cursor-default sm:text-xl md:text-xl lg:whitespace-nowrap bg-clip-text "
                     )}
                   >
                     Hi, I am
@@ -61,8 +61,8 @@ const HeroSection = () => {
                       <h1
                         className={cn(
                           "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-6xl sm:text-7xl lg:text-8xl",
-                          "cursor-default text-edge-outline font-display "
+                          "font-bold text-6xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl",
+                          "cursor-default text-edge-outline font-display hero-name"
                         )}
                       >
                         {config.author.split(" ")[0]}
@@ -83,7 +83,7 @@ const HeroSection = () => {
                   <p
                     className={cn(
                       "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "cursor-default sm:text-xl md:text-xl lg:whitespace-nowrap bg-clip-text "
                     )}
                   >
                     {config.headline}
