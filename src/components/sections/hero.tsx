@@ -66,7 +66,7 @@ const HeroSection = () => {
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
+                        <br />
                         {config.author.split(" ")[1]}
                       </h1>
                     </TooltipTrigger>
@@ -74,7 +74,7 @@ const HeroSection = () => {
                       side="top"
                       className="dark:bg-white dark:text-black"
                     >
-                      theres something waiting for you in devtools
+                      There&apos;s something waiting for you in devtools
                     </TooltipContent>
                   </Tooltip>
                 </BlurIn>

@@ -5,6 +5,9 @@ import { Button } from "../ui/button";
 import SocialMediaButtons from "../social/social-media-icons";
 import { config } from "@/data/config";
 
+// Static export: this is evaluated at build time, so it shows the deploy date.
+const BUILT = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
+
 function CopyrightYear() {
   const year = new Date().getFullYear();
   return <>{year}</>;
@@ -18,7 +21,19 @@ function Footer() {
         <Suspense fallback={null}>
           <CopyrightYear />
         </Suspense>{" "}
-        {config.author}. All rights reserved.
+        {config.author}. Built on{" "}
+        <a
+          href="https://github.com/Naresh-Khatri/3d-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4 hover:text-foreground"
+        >
+          Naresh Khatri&apos;s 3d-portfolio
+        </a>
+        .
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400">
+        Last updated {BUILT}
       </p>
       <SocialMediaButtons />
       <nav className="flex gap-4 sm:gap-6 z-10">

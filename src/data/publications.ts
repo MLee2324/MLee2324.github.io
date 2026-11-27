@@ -28,6 +28,12 @@ export type Publication = {
   date: string;
   /** One-line summary shown under the title. */
   summary?: string;
+  /** Full abstract, shown behind an "Abstract" toggle. */
+  abstract?: string;
+  /** Your own BibTeX entry. If omitted, one is built from the fields above. */
+  bibtex?: string;
+  /** Mark a few entries to get a "Selected" badge. */
+  selected?: boolean;
   links?: {
     paper?: string;
     pdf?: string;
@@ -47,5 +53,6 @@ export const PUBLICATIONS: Publication[] = [
     date: "April 2026",
     summary:
       "Compared automatic speech recognition accuracy on African American English and White Mainstream English using word error rate and error-type analysis.",
+    selected: true,
   },
 ];

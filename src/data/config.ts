@@ -27,8 +27,8 @@ const config = {
   location: "Salt Lake City, UT · Open to relocation",
   site: "https://mlee2324.github.io",
 
-  // Hero photo in /public. Falls back to initials until the file exists.
-  photo: "/assets/me.jpg" as string | null,
+  // Hero photo in /public, e.g. "/assets/me.jpg". null shows the "ML" initials card.
+  photo: null as string | null,
 
   // PDFs in /public. Set one to null to hide its buttons and links.
   resume: "/Matthew_Lee_Resume.pdf" as string | null,

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export default function ScrollProgress({ className }: { className?: string }) {
     const { scrollYProgress } = useScroll();
@@ -12,7 +13,8 @@ export default function ScrollProgress({ className }: { className?: string }) {
 
     return (
         <motion.div
-            className={`fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-50 ${className}`}
+            aria-hidden
+            className={cn("fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-50", className)}
             style={{ scaleX }}
         />
     );

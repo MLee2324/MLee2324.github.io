@@ -60,12 +60,12 @@ export default function MotionNudge() {
         Reduced motion is on
       </p>
       <p className="mt-1 text-xs text-muted-foreground">
-        The interactive 3D scene and animations are turned off. Want the full
+        Background effects and animations are turned off. Want the full
         experience?
       </p>
       <div className="mt-3 flex gap-2">
         <Button size="sm" onClick={enableMotion}>
-          Enable 3D
+          Enable animations
         </Button>
         <Button size="sm" variant="ghost" onClick={dismiss}>
           No thanks

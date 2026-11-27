@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // internal component playground — not part of the site
     },
     sitemap: `${config.site}/sitemap.xml`,
     host: config.site,

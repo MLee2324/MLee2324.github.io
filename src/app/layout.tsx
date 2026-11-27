@@ -69,7 +69,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {process.env.UMAMI_SITE_ID && (
+        {Boolean(UMAMI_SRC && process.env.UMAMI_SITE_ID) && (
           <Script
             defer
             src={UMAMI_SRC}

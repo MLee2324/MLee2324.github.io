@@ -1,3 +1,5 @@
+export type ProjectArea = "AI & Vision" | "Hardware";
+
 export type Project = {
   id: string;
   title: string;
@@ -8,13 +10,19 @@ export type Project = {
   tech: string[];
   github?: string;
   live?: string;
-  /** Optional image in /public, e.g. "/assets/projects/<id>.jpg". */
+  /** Used by the filter chips above the grid. */
+  area: ProjectArea;
+  /** Optional image in /public, e.g. "/assets/projects/<id>.jpg". Without
+   * one, the card gets a generated cover in this hue (0-360). */
   image?: string;
+  hue: number;
 };
 
 const projects: Project[] = [
   {
     id: "posture-checker",
+    area: "AI & Vision",
+    hue: 190,
     title: "Posture Checker",
     category: "Computer vision · ML",
     date: "Jun – Aug 2026",
@@ -28,6 +36,8 @@ const projects: Project[] = [
   },
   {
     id: "asr-accent-bias",
+    area: "AI & Vision",
+    hue: 265,
     title: "ASR Accent Bias Evaluation",
     category: "Senior capstone",
     date: "May 2025 – Apr 2026",
@@ -40,6 +50,8 @@ const projects: Project[] = [
   },
   {
     id: "smart-blinds",
+    area: "Hardware",
+    hue: 35,
     title: "STM32 Smart Blinds System",
     category: "Embedded systems",
     date: "Spring 2026",
@@ -51,6 +63,8 @@ const projects: Project[] = [
   },
   {
     id: "16-bit-cpu",
+    area: "Hardware",
+    hue: 150,
     title: "16-bit CPU",
     category: "Digital design",
     date: "Aug – Dec 2025",

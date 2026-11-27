@@ -378,6 +378,8 @@ function ElasticCursor() {
           height: CURSOR_DIAMETER,
           borderRadius: CURSOR_DIAMETER / 2,
           boxSizing: "border-box",
+          // hidden until the first mousemove starts the render loop
+          opacity: 0,
           zIndex: 100,
           backdropFilter: "invert(100%)",
         }}
