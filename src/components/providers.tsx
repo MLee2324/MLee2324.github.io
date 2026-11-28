@@ -1,30 +1,24 @@
-import SocketContextProvider from "@/contexts/socketio";
-import Preloader from "./preloader";
-import { ThemeProvider } from "./theme-provider";
+"use client";
+
+import { useEffect } from "react";
+import { MotionConfig } from "motion/react";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "./ui/toaster";
+import { useReducedMotion } from "@/lib/motion-pref";
 
-import { TooltipProvider } from "./ui/tooltip";
+// Applies the motion setting to CSS (via data-motion on <html>, see
+// globals.css) and to Motion animations.
+function MotionSetting({ children }: { children: React.ReactNode }) {
+  const { reducedMotion, ready } = useReducedMotion();
+  useEffect(() => {
+    if (ready) document.documentElement.dataset.motion = reducedMotion ? "off" : "on";
+  }, [ready, reducedMotion]);
+  return <MotionConfig reducedMotion={reducedMotion ? "always" : "user"}>{children}</MotionConfig>;
+}
 
-import { GameContextProvider } from "@/contexts/game-context";
-import MotionPreferences from "./motion-preferences";
-
-export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <ThemeProvider
-    attribute="class"
-    defaultTheme="dark"
-    disableTransitionOnChange
-  >
-    <MotionPreferences>
-      <Preloader>
-        <SocketContextProvider>
-          <GameContextProvider>
-            <TooltipProvider>
-              {children}
-            </TooltipProvider>
-          </GameContextProvider>
-          <Toaster />
-        </SocketContextProvider>
-      </Preloader>
-    </MotionPreferences>
-  </ThemeProvider>;
-};
+export const Providers = ({ children }: { children: React.ReactNode }) => (
+  <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+    <MotionSetting>{children}</MotionSetting>
+    <Toaster />
+  </ThemeProvider>
+);

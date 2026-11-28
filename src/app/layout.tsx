@@ -7,7 +7,6 @@ import Script from "next/script";
 import SiteFrame from "@/components/site-frame";
 import { Providers } from "@/components/providers";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { UMAMI_SRC } from "@/lib/umami";
 import { A11Y_INIT_SCRIPT } from "@/lib/a11y-script";
 
 /* One typeface for the whole site: Inter for body text and headings. */
@@ -64,13 +63,6 @@ export default function RootLayout({
         <Script id="a11y-prefs" strategy="beforeInteractive">
           {A11Y_INIT_SCRIPT}
         </Script>
-        {Boolean(UMAMI_SRC && process.env.UMAMI_SITE_ID) && (
-          <Script
-            defer
-            src={UMAMI_SRC}
-            data-website-id={process.env.UMAMI_SITE_ID}
-          />
-        )}
       </head>
       <body>
         <Providers>

@@ -1,32 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import NotFoundMeme from "@/components/not-found-meme";
 
 export const metadata: Metadata = {
-  title: "404 - Page Not Found",
-  description: "The page you're looking for doesn't exist or has been moved.",
+  title: "Page not found",
+  description: "This page doesn't exist.",
 };
 
 export default function NotFoundPage() {
   return (
-    <main className="flex min-h-[100svh] flex-col items-center justify-center px-6 pb-16 pt-32 text-center">
-      <p className="font-display text-7xl font-bold tracking-tight sm:text-8xl" aria-hidden="true">
-        404
-      </p>
-      <h1 className="mt-4 text-xl font-semibold sm:text-2xl">Page not found</h1>
-      <p className="mt-3 max-w-sm text-sm text-muted-foreground sm:text-base">
-        This page disappeared. Or maybe it never existed.
-      </p>
-      <div className="mt-8 w-full max-w-[426px]">
-        <NotFoundMeme />
-      </div>
-      <Link
-        href="/"
-        className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-      >
-        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-        Back to home
+    <main className="mx-auto flex min-h-[70svh] max-w-5xl flex-col justify-center px-4 pt-24 md:px-6">
+      <p className="text-sm font-medium text-muted-foreground">404</p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight">Page not found</h1>
+      <p className="mt-3 text-muted-foreground">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
+      <Link href="/" className="mt-6 text-accent2 underline-offset-4 hover:underline">
+        Back to the homepage
       </Link>
     </main>
   );

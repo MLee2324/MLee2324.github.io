@@ -1,4 +1,4 @@
-import { Link } from "@/types";
+export type Link = { title: string; href: string };
 import { config } from "@/data/config";
 
 // Section links (shown inline in the header on wide screens and in the menu

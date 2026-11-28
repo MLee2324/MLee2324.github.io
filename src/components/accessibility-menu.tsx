@@ -3,7 +3,7 @@
 import { Accessibility, RotateCcw } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { resetA11yPrefs, setA11yPrefs, TextSize, useA11yPrefs } from "@/lib/a11y-prefs";
-import { setMotionPreference, usePerfProfile } from "@/hooks/use-perf-profile";
+import { setMotionPreference, useReducedMotion } from "@/lib/motion-pref";
 import { cn } from "@/lib/utils";
 
 const SIZES: { value: TextSize; label: string; sample: string }[] = [
@@ -55,7 +55,7 @@ function Switch({
 
 export default function AccessibilityMenu({ className }: { className?: string }) {
   const prefs = useA11yPrefs();
-  const { ready, reducedMotion } = usePerfProfile();
+  const { ready, reducedMotion } = useReducedMotion();
   const motionOff = ready && reducedMotion;
 
   return (

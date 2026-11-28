@@ -2,7 +2,6 @@
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import AppOverlays from "@/components/app-overlays";
 
 // The app shell: header, page content, footer.
 export default function SiteFrame({ children }: { children: React.ReactNode }) {
@@ -11,7 +10,6 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
       <Header />
       {children}
       <Footer />
-      <AppOverlays />
     </>
   );
 }
