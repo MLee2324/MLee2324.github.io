@@ -20,7 +20,7 @@ export const RESEARCH_THEMES: ResearchTheme[] = [
     body: "Turning camera input, including egocentric video from wearables, into a reliable picture of objects, people, and posture.",
     work: [
       { label: "Posture Checker", href: "#projects" },
-      { label: "Aria glasses pipeline", href: "#experience" },
+      { label: "EgoBranch (Meta Aria)", href: "#experience" },
     ],
   },
   {
@@ -30,7 +30,7 @@ export const RESEARCH_THEMES: ResearchTheme[] = [
     question: "What does the person want to do?",
     body: "Combining video, gaze, and speech so a model can follow a task, and learning from human corrections to get better over time.",
     work: [
-      { label: "Vision-language guidance", href: "#experience" },
+      { label: "EgoBranch board-game study", href: "#experience" },
       { label: "ASR accent bias", href: "#projects" },
       { label: "LLM-agent benchmarks", href: "#experience" },
     ],
@@ -42,8 +42,8 @@ export const RESEARCH_THEMES: ResearchTheme[] = [
     question: "How should the system help?",
     body: "Giving clear, timely guidance, by voice or through a robot, that helps blind and low-vision people act with independence and confidence.",
     work: [
-      { label: "ROS 2 speech feedback", href: "#experience" },
-      { label: "Object-sorting trials", href: "#experience" },
+      { label: "Robot Vibe-Coding (Stretch 4)", href: "#experience" },
+      { label: "Pen-sorting trials", href: "#experience" },
     ],
   },
 ];

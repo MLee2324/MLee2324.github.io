@@ -126,7 +126,8 @@ export type Experience = {
   periods: { start: string; end: string }[];
   title: string;
   company: string;
-  description: string[];
+  /** Plain bullets, or groups of bullets under a project subheading. */
+  description: (string | { heading: string; points: string[] })[];
   skills: SkillNames[];
 };
 
@@ -138,12 +139,24 @@ export const EXPERIENCE: Experience[] = [
     title: "Undergraduate Student Researcher",
     company: "SparkLab, University of Utah · Advisor: Prof. Kenneth Marino",
     description: [
-      "Co-leading a wearable AI project with a master's student, building step-by-step guidance with Meta Aria glasses and vision-language models.",
-      "Tested a ROS 2 pipeline connecting egocentric camera input, gaze signals, and text-to-speech; completed two successful multi-step object-sorting trials.",
-      "Measured average planning round-trip times of 2.54 s and 2.78 s across the two trials.",
-      "Exploring how video, gaze, speech, and human corrections can give multimodal agents feedback to improve over time.",
+      {
+        heading: "EgoBranch: Wearable Vision-Language Assistance (Co-Lead)",
+        points: [
+          "Developing a wearable AI assistant using Meta Aria glasses and vision-language models with the EgoBranch team at the University of Utah and National University of Singapore, led by Prof. Kenneth Marino (Utah) and Prof. Weiyu Liu (NUS).",
+          "Tested a ROS 2 pipeline connecting egocentric camera input, gaze signals, and text-to-speech; completed two successful multi-step pen-sorting trials.",
+          "Measured average planning round-trip times of 2.54 s and 2.78 s in the two successful trials.",
+          "Exploring how video, gaze, speech, and human corrections could provide learning signals for multimodal agents.",
+          "Developing a board-game evaluation to study when a wearable assistant should guide, ask questions, or pause as people learn an unfamiliar game, and whether its help supports later independent play.",
+        ],
+      },
+      {
+        heading: "Robot Vibe-Coding: Hello Robot Stretch 4",
+        points: [
+          "Contributing with the Utah team to a multi-university project within the NSF Center for Human and Robot Co-Adaptation: users describe robot tasks, an AI agent generates and tests code, and user feedback guides revisions toward executable robot policies.",
+        ],
+      },
     ],
-    skills: [SkillNames.ROS2],
+    skills: [SkillNames.ROS2, SkillNames.PYTHON],
   },
   {
     id: 2,
@@ -153,7 +166,7 @@ export const EXPERIENCE: Experience[] = [
     description: [
       "Contributed to LLM-agent benchmarking by creating and validating gold-standard document and spreadsheet tasks.",
       "Developed Python evaluators that check text accuracy, image location and matching, document layout, and spreadsheet cell content and formatting.",
-      "Validated gold-standard task evaluations, including spreadsheet color-palette checks.",
+      "Created and validated gold-standard task evaluations, including checks for a wedding color-palette spreadsheet.",
     ],
     skills: [SkillNames.PYTHON],
   },

@@ -106,11 +106,25 @@ const ExperienceCard = ({
           </div>
         </CardHeader>
         <CardContent className="space-y-6">
-          <ul className="list-disc list-outside ml-4 space-y-2 text-base text-muted-foreground leading-relaxed">
-            {experience.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
+          {/* plain bullets sit as one tight list; grouped projects get more room */}
+          <div className={experience.description.some((d) => typeof d !== "string") ? "space-y-4" : "space-y-2"}>
+            {experience.description.map((item, i) =>
+              typeof item === "string" ? (
+                <ul key={i} className="list-disc list-outside ml-4 text-base text-muted-foreground leading-relaxed">
+                  <li>{item}</li>
+                </ul>
+              ) : (
+                <div key={i}>
+                  <h4 className="font-sans text-sm font-semibold text-foreground">{item.heading}</h4>
+                  <ul className="mt-2 list-disc list-outside ml-4 space-y-2 text-base text-muted-foreground leading-relaxed">
+                    {item.points.map((point, j) => (
+                      <li key={j}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            )}
+          </div>
 
           <div className="flex flex-wrap gap-2">
             {experience.skills.map((skillName) => {

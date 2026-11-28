@@ -20,7 +20,7 @@ export const NEWS: NewsItem[] = [
   {
     date: "Sep 2026",
     kind: "research",
-    text: "Joined SparkLab (Prof. Kenneth Marino) to co-lead a wearable AI project giving step-by-step guidance with Meta Aria glasses and vision-language models.",
+    text: "Joined SparkLab (Prof. Kenneth Marino) to co-lead EgoBranch, a wearable vision-language assistant built on Meta Aria glasses with a Utah and NUS team, and to contribute to Robot Vibe-Coding on the Hello Robot Stretch 4.",
     link: { label: "Experience", href: "#experience" },
   },
   {

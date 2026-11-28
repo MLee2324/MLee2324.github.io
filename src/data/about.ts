@@ -12,7 +12,7 @@ export const ABOUT = {
     { label: "Location", value: "Salt Lake City, UT · Open to relocation" },
   ],
   highlights: [
-    { label: "Engineering GPA", value: "3.494 / 4.0", sub: "Dean's List" },
+    { label: "Major GPA", value: "3.49 / 4.0", sub: "3.43 cumulative · Dean's List (Spring 2025, Fall 2025, Spring 2026)" },
     { label: "Senior Capstone", value: "Evaluating ASR Systems", sub: "Automatic speech recognition" },
     { label: "Focus Areas", value: "Assistive AI", sub: "For blind and low-vision people" },
   ],
