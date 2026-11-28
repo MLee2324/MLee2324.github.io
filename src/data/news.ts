@@ -19,11 +19,6 @@ export const NEWS: NewsItem[] = [
     link: { label: "Experience", href: "#experience" },
   },
   {
-    date: "Aug 2026",
-    text: "Finished Posture Checker, a real-time webcam posture monitor whose Random Forest classifier reached 97.5% accuracy.",
-    link: { label: "Code", href: "https://github.com/MLee2324/posturechecker" },
-  },
-  {
     date: "Apr 2026",
     text: "Completed my senior capstone, ASR Accent Bias Evaluation: Amazon, Google, and Microsoft speech recognition all made more errors on Indian and Nigerian English than on American English.",
     link: { label: "Poster", href: "/posters/asr-accent-bias/" },
