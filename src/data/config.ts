@@ -47,7 +47,7 @@ const config = {
   // Leave a link empty ("") to hide its button.
   social: {
     github: "https://github.com/MLee2324",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/matthew-lee-9a8724293/",
     twitter: "",
     instagram: "",
   },

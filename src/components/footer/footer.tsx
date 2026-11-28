@@ -24,6 +24,11 @@ function Footer() {
               GitHub
             </a>
           )}
+          {config.social.linkedin && (
+            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+              LinkedIn
+            </a>
+          )}
         </nav>
       </div>
     </footer>

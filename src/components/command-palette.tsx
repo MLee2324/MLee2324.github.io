@@ -19,7 +19,7 @@ import {
   Underline,
 } from "lucide-react";
 import { setA11yPrefs, useA11yPrefs } from "@/lib/a11y-prefs";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { config } from "@/data/config";
 import { links } from "@/components/header/config";
 import { useToast } from "@/components/ui/use-toast";
@@ -105,6 +105,9 @@ export default function CommandPalette({ className }: { className?: string }) {
       },
       ...(config.social.github
         ? [{ id: "github", group: "Contact" as const, label: "GitHub", hint: "Opens in a new tab", icon: <SiGithub className="h-4 w-4" />, keywords: "code repos", run: () => window.open(config.social.github, "_blank", "noopener,noreferrer") }]
+        : []),
+      ...(config.social.linkedin
+        ? [{ id: "linkedin", group: "Contact" as const, label: "LinkedIn", hint: "Opens in a new tab", icon: <SiLinkedin className="h-4 w-4" />, keywords: "profile network", run: () => window.open(config.social.linkedin, "_blank", "noopener,noreferrer") }]
         : []),
     ];
     const settings: Command[] = [
