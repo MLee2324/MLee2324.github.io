@@ -38,6 +38,8 @@ export const metadata: Metadata = {
     description: config.description.short,
     ...(config.ogImg && { images: [config.ogImg] }),
   },
+  // Google Search Console ownership check
+  verification: { google: "8a3C2TdnxOOaIPaU26IYpM5fEiQdUYC7M7jRoqzi6Vs" },
   robots: {
     index: true,
     follow: true,
