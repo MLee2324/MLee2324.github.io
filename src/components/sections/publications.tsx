@@ -165,15 +165,10 @@ function PublicationCard({ pub, index }: { pub: Publication; index: number }) {
 
 const PublicationsSection = () => {
   return (
-    <SectionWrapper id="publications" className="max-w-4xl mx-auto py-24 px-4 min-h-[70vh]">
-      <SectionHeader
-        id="publications"
-        title="Publications"
-        desc="Research papers"
-        className="static mb-12 md:mb-16"
-      />
+    <SectionWrapper id="publications" className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+      <SectionHeader id="publications" title="Publications" />
       {PUBLICATIONS.length === 0 ? (
-        <p className="text-center text-muted-foreground">Publications will be listed here.</p>
+        <p className="text-muted-foreground">Publications will be listed here.</p>
       ) : (
         <ol className="flex flex-col gap-4">
           {PUBLICATIONS.map((pub, index) => (

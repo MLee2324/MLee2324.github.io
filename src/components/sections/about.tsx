@@ -1,87 +1,32 @@
-"use client";
-
-import { motion } from "motion/react";
 import { ABOUT } from "@/data/about";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
 
-const fadeUp = (index: number) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.4, delay: index * 0.08, ease: "easeOut" as const },
-  viewport: { once: true, margin: "-50px" },
-});
-
-const cardClass = cn(
-  "bg-white/70 dark:bg-black/60 backdrop-blur-sm border-border",
-  "hover:border-primary/20 transition-colors duration-300"
-);
-
-const AboutSection = () => {
-  return (
-    <SectionWrapper id="about" className="flex flex-col items-center justify-center min-h-screen py-24">
-      <div className="w-full max-w-5xl px-4 md:px-8 mx-auto">
-        <SectionHeader id="about" title="About Me" className="static mb-12 md:mb-16" />
-
-        <div className="grid gap-4 md:grid-cols-5">
-          <motion.div {...fadeUp(0)} className="md:col-span-3">
-            <Card className={cn(cardClass, "h-full")}>
-              <CardContent className="p-6 md:p-8 flex flex-col gap-6 h-full">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{ABOUT.introLabel}</p>
-                  <p className="mt-3 text-lg leading-relaxed text-foreground/90">{ABOUT.intro}</p>
-                </div>
-                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-6 mt-auto">
-                  {ABOUT.facts.map((fact) => (
-                    <div key={fact.label}>
-                      <dt className="text-xs uppercase tracking-widest text-muted-foreground">{fact.label}</dt>
-                      <dd className="mt-1 font-semibold">{fact.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <div
-            className="md:col-span-2 grid gap-4"
-            style={{ gridTemplateRows: `repeat(${ABOUT.highlights.length}, minmax(0, 1fr))` }}
-          >
-            {ABOUT.highlights.map((stat, i) => (
-              <motion.div key={stat.label} {...fadeUp(i + 1)} className="h-full">
-                <Card className={cn(cardClass, "h-full flex flex-col justify-center")}>
-                  <CardContent className="p-5">
-                    <p className="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</p>
-                    <p className="mt-2 text-xl font-bold font-display">{stat.value}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+const AboutSection = () => (
+  <SectionWrapper id="about" className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+    <SectionHeader id="about" title="About" />
+    <div className="grid gap-10 md:grid-cols-[3fr_2fr]">
+      <p className="text-[17px] leading-relaxed text-foreground/90">{ABOUT.intro}</p>
+      <dl className="space-y-3 text-sm">
+        {ABOUT.facts.map((f) => (
+          <div key={f.label} className="grid grid-cols-[6.5rem_1fr] gap-3">
+            <dt className="text-muted-foreground">{f.label}</dt>
+            <dd className="text-foreground">{f.value}</dd>
           </div>
-        </div>
+        ))}
+      </dl>
+    </div>
 
-        <h3 className="mt-16 mb-6 text-center text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
-          Courses right now
-        </h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          {ABOUT.courses.map((course, i) => (
-            <motion.div key={course.title} {...fadeUp(i)}>
-              <Card className={cn(cardClass, "h-full")}>
-                <CardContent className="p-6">
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{course.caption}</p>
-                  <p className="mt-2 text-xl font-bold font-display">{course.title}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{course.detail}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </SectionWrapper>
-  );
-};
+    <h3 className="mb-4 mt-12 text-sm font-semibold text-foreground">Current coursework</h3>
+    <ul className="grid gap-6 md:grid-cols-2">
+      {ABOUT.courses.map((c) => (
+        <li key={c.title} className="border-l-2 border-accent2/60 pl-4">
+          <p className="font-medium text-foreground">{c.title}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.detail}</p>
+        </li>
+      ))}
+    </ul>
+  </SectionWrapper>
+);
 
 export default AboutSection;

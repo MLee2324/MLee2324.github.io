@@ -1,28 +1,19 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Unbounded } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { config } from "@/data/config";
 
 import Script from "next/script";
 import SiteFrame from "@/components/site-frame";
-import GitHubStars from "@/components/header/github-stars";
 import { Providers } from "@/components/providers";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { UMAMI_SRC } from "@/lib/umami";
 import { A11Y_INIT_SCRIPT } from "@/lib/a11y-script";
 
-/* Body/base font — Space Grotesk, bound to --font-sans (applied as `font-sans`
- * on <html>). Everything that isn't a heading inherits this. */
-const spaceGroteskSans = Space_Grotesk({
+/* One typeface for the whole site: Inter for body text and headings. */
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-/* Heading font — Unbounded, bound to --font-display and applied to h1–h6. */
-const unbounded = Unbounded({
-  subsets: ["latin"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -63,8 +54,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={[
-        spaceGroteskSans.variable,
-        unbounded.variable,
+        inter.variable,
         "font-sans",
       ].join(" ")}
       suppressHydrationWarning
@@ -84,7 +74,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>
-          <SiteFrame githubStars={<GitHubStars className="mr-4" />}>
+          <SiteFrame>
             {children}
           </SiteFrame>
         </Providers>

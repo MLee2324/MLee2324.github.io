@@ -34,6 +34,8 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    /* the one accent color: a muted blue */
+    --accent-brand: 214 62% 40%;
     /* accent helpers — monochrome ink */
     --brand: #171717;
     --accent-solid: #171717;
@@ -65,6 +67,7 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --accent-brand: 213 80% 72%;
     /* accent helpers — monochrome ink */
     --brand: #f5f5f5;
     --accent-solid: #f5f5f5;
@@ -77,27 +80,25 @@ body {
     @apply border-border;
   }
 
-  /* Medium (500) is the site-wide default weight. Un-weighted text (body,
-     labels, nav) follows this; elements with an explicit font-bold/semibold
-     utility keep their own weight. */
+  /* Regular (400) is the site-wide default weight; headings and labels set
+     their own with font-semibold / font-medium. */
   html {
-    font-weight: 500;
+    font-weight: 400;
   }
 
   body {
     @apply bg-background text-foreground;
   }
 
-  /* Headings use the display font (--font-display, Unbounded). Body and
-     everything else inherits Space Grotesk via `font-sans` on <html>. Elements
-     can still opt in explicitly with the `font-display` Tailwind class. */
+  /* Headings use the same typeface as body text (Inter), just heavier. */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: var(--font-display), sans-serif;
+    font-family: var(--font-sans), sans-serif;
+    letter-spacing: -0.015em;
   }
 }
 
@@ -276,35 +277,3 @@ html[data-underline-links] a {
   text-underline-offset: 4px;
 }
 
-/* The hero name is display text that's already huge; keep it at its normal
-   pixel size so larger text sizes don't push it off small screens. */
-html[data-text-size] .hero-name {
-  font-size: 60px;
-}
-/* On narrow phones, shrink the name to fit the screen at any text size. */
-@media (max-width: 639px) {
-  .hero-name,
-  html[data-text-size] .hero-name {
-    font-size: min(60px, calc((100vw - 48px) / 6));
-  }
-}
-@media (min-width: 640px) {
-  html[data-text-size] .hero-name {
-    font-size: 72px;
-  }
-}
-@media (min-width: 768px) {
-  html[data-text-size] .hero-name {
-    font-size: 60px;
-  }
-}
-@media (min-width: 1024px) {
-  html[data-text-size] .hero-name {
-    font-size: 72px;
-  }
-}
-@media (min-width: 1280px) {
-  html[data-text-size] .hero-name {
-    font-size: 96px;
-  }
-}

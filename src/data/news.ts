@@ -1,5 +1,5 @@
 // Short dated updates for the "Latest" section, newest first.
-// `kind` picks the icon. `link` is optional: "#projects" scrolls to a section,
+// `kind` is for your own sorting (not shown). `link` is optional: "#projects" scrolls to a section,
 // a full URL opens in a new tab.
 
 export type NewsKind = "research" | "milestone" | "project" | "talk";

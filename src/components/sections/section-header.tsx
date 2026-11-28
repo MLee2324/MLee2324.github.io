@@ -1,27 +1,23 @@
-import { cn } from "@/lib/utils"
-import Link from "next/link"
-import { BoxReveal } from "../reveal-animations"
-import { ReactNode } from "react"
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-export const SectionHeader = ({ id, title, desc, className }: { id: string, title: string | ReactNode, desc?: string, className?: string }) => {
-  return (
-
-    <div className={cn("top-[70px] sticky mb-96", className)}>
-      <Link href={`#${id}`}>
-        <BoxReveal width="100%">
-          <h2
-            className={cn(
-              "text-4xl text-center md:text-7xl font-bold",
-              "text-foreground"
-            )}
-          >
-            {title}
-          </h2>
-        </BoxReveal>
-      </Link>
-      <p className="mx-auto line-clamp-4 max-w-3xl font-normal text-base text-center text-muted-foreground">
-        {desc}
-      </p>
-    </div>
-  )
-}
+// Plain section title: left-aligned, with a hairline rule, and an optional
+// one-line description underneath.
+export const SectionHeader = ({
+  id,
+  title,
+  desc,
+  className,
+}: {
+  id: string;
+  title: string | ReactNode;
+  desc?: string;
+  className?: string;
+}) => (
+  <div className={cn("mb-8 border-b border-border pb-3", className)}>
+    <h2 id={`${id}-title`} className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+      {title}
+    </h2>
+    {desc && <p className="mt-1 text-sm text-muted-foreground">{desc}</p>}
+  </div>
+);

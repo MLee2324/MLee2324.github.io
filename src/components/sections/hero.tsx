@@ -1,163 +1,50 @@
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
-import { Button } from "../ui/button";
-import { File } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { usePreloader } from "../preloader";
-import { BlurIn, BoxReveal } from "../reveal-animations";
-import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { FileText, Mail } from "lucide-react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { config } from "@/data/config";
-
+import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import HeroPhoto from "../hero-photo";
 
-const HERO_SOCIALS = [
-  { name: "GitHub", href: config.social.github, Icon: SiGithub },
-  { name: "LinkedIn", href: config.social.linkedin, Icon: SiLinkedin },
-  { name: "X", href: config.social.twitter, Icon: SiX },
-];
+const button =
+  "inline-flex h-9 items-center gap-2 rounded-md border border-border px-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary/70";
 
 const HeroSection = () => {
-  const { isLoading } = usePreloader();
+  const links = [
+    ...(config.resume ? [{ label: "Résumé", href: "/resume/", Icon: FileText, external: false }] : []),
+    ...(config.cv ? [{ label: "CV", href: "/cv/", Icon: FileText, external: false }] : []),
+    { label: "Email", href: `mailto:${config.email}`, Icon: Mail, external: false },
+    ...(config.social.github ? [{ label: "GitHub", href: config.social.github, Icon: SiGithub, external: true }] : []),
+    ...(config.social.linkedin ? [{ label: "LinkedIn", href: config.social.linkedin, Icon: SiLinkedin, external: true }] : []),
+  ];
 
   return (
-    <SectionWrapper id="hero" className={cn("relative w-full min-h-screen")}>
-      <div className="grid md:grid-cols-2">
-        <div
-          className={cn(
-            "min-h-[calc(100dvh-3rem)] md:min-h-[calc(100dvh-4rem)] z-[2]",
-            "col-span-1 min-w-0",
-            "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "px-6 pt-28 pb-24 sm:pb-16 md:p-12 lg:p-24 xl:p-28"
-          )}
-        >
-          {!isLoading && (
-            <div className="flex min-w-0 max-w-full flex-col">
-              <div>
-                <BlurIn delay={0.5} className="md:hidden">
-                  <HeroPhoto className="mb-6 w-32" initialsClassName="text-4xl" />
-                </BlurIn>
-                <BlurIn delay={0.7}>
-                  <p
-                    className={cn(
-                      "md:self-start mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl lg:whitespace-nowrap bg-clip-text "
-                    )}
-                  >
-                    Hi, I am
-                    <br className="md:hidden" />
-                  </p>
-                </BlurIn>
-
-                <BlurIn delay={1}>
-                  <Tooltip delayDuration={300}>
-                    <TooltipTrigger asChild>
-                      <h1
-                        className={cn(
-                          "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-6xl sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl",
-                          "cursor-default text-edge-outline font-display hero-name"
-                        )}
-                      >
-                        {config.author.split(" ")[0]}
-                        <br />
-                        {config.author.split(" ")[1]}
-                      </h1>
-                    </TooltipTrigger>
-                    <TooltipContent
-                      side="top"
-                      className="dark:bg-white dark:text-black"
-                    >
-                      There&apos;s something waiting for you in devtools
-                    </TooltipContent>
-                  </Tooltip>
-                </BlurIn>
-                {/* <div className="md:block hidden bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 w-screen h-px animate-fade-right animate-glow" /> */}
-                <BlurIn delay={1.2}>
-                  <p
-                    className={cn(
-                      "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl lg:whitespace-nowrap bg-clip-text "
-                    )}
-                  >
-                    {config.headline}
-                  </p>
-                </BlurIn>
-                <BlurIn delay={1.4}>
-                  <p className="mt-3 max-w-md text-sm sm:text-base leading-relaxed text-slate-500 dark:text-zinc-400 cursor-default">
-                    {config.tagline}
-                  </p>
-                </BlurIn>
-              </div>
-              <div className="mt-8 flex flex-col gap-3 w-fit">
-                {(config.resume || config.cv) && (
-                  <BoxReveal delay={2} width="100%">
-                    <div className="flex gap-3">
-                      {config.resume && (
-                        <Link href="/resume/" className="flex-1">
-                          <Button className="flex items-center gap-2 w-full">
-                            <File size={20} />
-                            <p>Résumé</p>
-                          </Button>
-                        </Link>
-                      )}
-                      {config.cv && (
-                        <Link href="/cv/" className="flex-1">
-                          <Button className="flex items-center gap-2 w-full">
-                            <File size={20} />
-                            <p>CV</p>
-                          </Button>
-                        </Link>
-                      )}
-                    </div>
-                  </BoxReveal>
+    <SectionWrapper id="hero" className="mx-auto max-w-5xl px-4 pb-6 pt-28 md:px-6 md:pb-8 md:pt-36">
+      <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
+        <div className="min-w-0 max-w-2xl">
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{config.author}</h1>
+          <p className="mt-3 text-lg text-muted-foreground">
+            {config.headline} · University of Utah
+          </p>
+          <p className="mt-5 max-w-xl leading-relaxed text-foreground/85">{config.tagline}</p>
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            {links.map(({ label, href, Icon, external }, i) => (
+              <Link
+                key={label}
+                href={href}
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                className={cn(
+                  button,
+                  i === 0 && "border-transparent bg-foreground text-background hover:bg-foreground/90"
                 )}
-                <div className="md:self-start flex gap-3">
-                  <Tooltip delayDuration={300}>
-                    <TooltipTrigger asChild>
-                      <a href={`mailto:${config.email}`}>
-                        <Button
-                          variant={"outline"}
-                          className="block w-full overflow-hidden"
-                        >
-                          Email Me
-                        </Button>
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom">
-                      <p>{config.email}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                  <div className="flex items-center h-full gap-2">
-                    {HERO_SOCIALS.filter((item) => item.href).map(({ name, href, Icon }) => (
-                      <Link key={name} href={href} target="_blank" className="cursor-can-hover" aria-label={name}>
-                        <Button variant={"outline"}>
-                          <Icon size={24} />
-                        </Button>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+              >
+                <Icon className="h-4 w-4" aria-hidden />
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="hidden md:flex col-span-1 items-center justify-center h-[calc(100dvh-4rem)] z-[2] p-12 lg:p-20">
-          {!isLoading && (
-            <BlurIn delay={1.2} className="w-full max-w-[420px]">
-              <HeroPhoto className="w-full" />
-            </BlurIn>
-          )}
-        </div>
-      </div>
-      <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
-        <ScrollDownIcon />
+        <HeroPhoto className="w-24 shrink-0 sm:w-36 md:w-56" initialsClassName="text-3xl sm:text-4xl md:text-6xl" />
       </div>
     </SectionWrapper>
   );

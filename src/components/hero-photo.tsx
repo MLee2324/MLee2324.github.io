@@ -35,12 +35,7 @@ export default function HeroPhoto({
 
   return (
     <div className={cn("relative aspect-[4/5]", className)}>
-      {/* soft glow behind the frame */}
-      <div
-        aria-hidden
-        className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-sky-500/25 via-indigo-500/20 to-fuchsia-500/20 blur-3xl"
-      />
-      <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800 to-slate-950 shadow-2xl">
+      <div className="h-full w-full overflow-hidden rounded-2xl border border-border bg-secondary/60">
         {loaded && config.photo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={config.photo} alt={config.author} className="h-full w-full object-cover" />
@@ -49,7 +44,7 @@ export default function HeroPhoto({
             role="img"
             aria-label={config.author}
             className={cn(
-              "flex h-full w-full items-center justify-center font-display font-bold text-white/80",
+              "flex h-full w-full items-center justify-center font-semibold tracking-tight text-foreground/70",
               initialsClassName
             )}
           >

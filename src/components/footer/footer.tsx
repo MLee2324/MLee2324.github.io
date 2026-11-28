@@ -1,56 +1,39 @@
-import React, { Suspense } from "react";
 import Link from "next/link";
 import { footer } from "./config";
-import { Button } from "../ui/button";
-import SocialMediaButtons from "../social/social-media-icons";
 import { config } from "@/data/config";
 
-// Static export: this is evaluated at build time, so it shows the deploy date.
-const BUILT = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
-
-function CopyrightYear() {
-  const year = new Date().getFullYear();
-  return <>{year}</>;
-}
+// Static export: evaluated at build time, so these show the deploy date.
+const BUILT = new Date();
+const UPDATED = BUILT.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 
 function Footer() {
   return (
-    <footer className="flex w-full shrink-0 flex-col items-center gap-2 border-t border-border px-4 py-6 sm:flex-row md:px-6 sm:justify-between">
-      <p className="text-xs text-gray-500 dark:text-gray-400">
-        ©{" "}
-        <Suspense fallback={null}>
-          <CopyrightYear />
-        </Suspense>{" "}
-        {config.author}. Built on{" "}
-        <a
-          href="https://github.com/Naresh-Khatri/3d-portfolio"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:text-foreground"
-        >
-          Naresh Khatri&apos;s 3d-portfolio
-        </a>
-        .
-      </p>
-      <p className="text-xs text-gray-500 dark:text-gray-400">
-        Last updated {BUILT}
-      </p>
-      <SocialMediaButtons />
-      <nav className="flex gap-4 sm:gap-6 z-10">
-        {footer.map((link, index) => {
-          const { title, href } = link;
-
-          return (
-            <Link
-              className="text-xs underline-offset-4 hover:underline"
-              href={href}
-              key={`l_${index}`}
-            >
-              <Button variant={"link"}>{title}</Button>
+    <footer className="mt-8 border-t border-border">
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between md:px-6">
+        <p>
+          © {BUILT.getUTCFullYear()} {config.author} · Last updated {UPDATED}
+        </p>
+        <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-1">
+          {footer.map((l) => (
+            <Link key={l.href} href={l.href} className="hover:text-foreground">
+              {l.title}
             </Link>
-          );
-        })}
-      </nav>
+          ))}
+          {config.social.github && (
+            <a href={config.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-foreground">
+              GitHub
+            </a>
+          )}
+          <a
+            href="https://github.com/Naresh-Khatri/3d-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground"
+          >
+            Template credit
+          </a>
+        </nav>
+      </div>
     </footer>
   );
 }
