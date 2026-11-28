@@ -64,7 +64,7 @@ export const EXPERIENCE: Experience[] = [
     id: 2,
     periods: [{ start: "Jan 2026", end: "Jun 2026" }],
     title: "Undergraduate Research Assistant",
-    company: "NLP Lab, University of Utah · Advisor: Prof. Ana Marasović",
+    company: "NLP Lab, University of Utah · Research Advisors: Prof. Ana Marasović and Prof. Kenneth Marino",
     description: [
       "Contributed to LLM-agent benchmarking by creating and validating gold-standard document and spreadsheet tasks.",
       "Developed Python evaluators that check text accuracy, image location and matching, document layout, and spreadsheet cell content and formatting.",

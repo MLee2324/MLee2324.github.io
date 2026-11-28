@@ -38,7 +38,7 @@ export const NEWS: NewsItem[] = [
   {
     date: "Jan 2026",
     kind: "research",
-    text: "Joined the Utah NLP Lab (Prof. Ana Marasović) to build gold-standard tasks and evaluators for LLM-agent benchmarks.",
+    text: "Joined the Utah NLP Lab (Profs. Ana Marasović and Kenneth Marino) to build gold-standard tasks and evaluators for LLM-agent benchmarks.",
     link: { label: "Experience", href: "#experience" },
   },
 ];
