@@ -28,6 +28,12 @@ export default {
         popover: { DEFAULT: color("popover"), foreground: color("popover-foreground") },
         card: { DEFAULT: color("card"), foreground: color("card-foreground") },
       },
+      keyframes: {
+        caret: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },
+      },
+      animation: {
+        caret: "caret 1s steps(1) infinite",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

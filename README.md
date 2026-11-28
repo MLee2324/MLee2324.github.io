@@ -18,13 +18,14 @@ pnpm build      # static site in ./out
 
 | File | What it holds |
 |---|---|
-| `src/data/config.ts` | Name, headline, SEO text, email, social links, photo, résumé/CV paths |
-| `src/data/about.ts` | About section: intro, facts, current coursework |
+| `src/data/config.ts` | Name, typing-headline lines, status badges, SEO text, email, social links, photo, résumé/CV paths |
+| `src/data/about.ts` | About section: intro, "Right now" list, current coursework (the code card is `src/components/code-card.tsx`) |
 | `src/data/news.ts` | Dated updates for the News section |
 | `src/data/research.ts` | The three research areas and the work linked to each |
 | `src/data/constants.ts` | Research experience and the Skills grid (logo, description, color) |
 | `src/data/projects.tsx` | Projects, tech, optional screenshot, code link, poster PDF |
 | `src/data/publications.ts` | Papers and talks. Optional abstract, BibTeX (generated if omitted), and "Selected" flag |
+| `src/data/github.json` | GitHub activity data, written at deploy time by `scripts/fetch-github.mjs` (the section hides while it's empty) |
 | `public/` | Résumé, CV, and poster PDFs |
 
 The headshot is `public/assets/me.jpg` (`config.photo`; set it to `null` to show initials instead). Skill logos live in `public/assets/skills/`.

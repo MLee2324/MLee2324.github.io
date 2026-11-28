@@ -5,6 +5,7 @@ import { config } from "@/data/config";
 import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import HeroPhoto from "../hero-photo";
+import TypingHeadline from "../typing-headline";
 
 const button =
   "inline-flex h-9 items-center gap-2 rounded-md border border-border px-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary/70";
@@ -27,9 +28,18 @@ const HeroSection = () => {
       <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
         <div className="min-w-0 max-w-2xl">
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{config.author}</h1>
-          <p className="mt-3 text-lg text-muted-foreground">
-            {config.headline} · University of Utah
-          </p>
+          <TypingHeadline phrases={config.typing} className="mt-3 min-h-[3.5rem] text-lg text-muted-foreground sm:min-h-[1.75rem]" />
+          <ul className="mt-4 flex flex-wrap gap-2" aria-label="Status">
+            {config.badges.map((b) => (
+              <li
+                key={b.text}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-3 py-1 text-xs text-foreground/85"
+              >
+                <span aria-hidden>{b.emoji}</span>
+                {b.text}
+              </li>
+            ))}
+          </ul>
           <p className="mt-5 max-w-xl leading-relaxed text-foreground/85">{config.tagline}</p>
           <div className="mt-7 flex flex-wrap gap-2.5">
             {links.map(({ label, href, Icon, external }, i) => (

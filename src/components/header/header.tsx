@@ -11,9 +11,9 @@ import ThemeToggle from "../theme/theme-toggle";
 import CommandPalette from "../command-palette";
 import AccessibilityMenu from "../accessibility-menu";
 
-// Inline links on wide screens skip "Skills" to keep the bar short; the menu
-// and the search box still include it.
-const INLINE = sections.filter((s) => s.title !== "Skills");
+// Inline links on wide screens skip "Skills" and "GitHub" to keep the bar
+// short; the menu and the search box still include them.
+const INLINE = sections.filter((s) => s.title !== "Skills" && s.title !== "GitHub");
 
 const Header = () => {
   const [open, setOpen] = useState(false);

@@ -21,6 +21,20 @@ const config = {
   ],
   author: "Matthew Lee",
   headline: "Computer Engineering Student",
+  // Lines the hero's typing headline cycles through (the first one shows when
+  // motion is reduced).
+  typing: [
+    "Computer Engineering Student · University of Utah",
+    "Undergraduate Researcher at SparkLab",
+    "Co-leading EgoBranch, a wearable vision-language assistant",
+    "Building assistive AI for blind and low-vision people",
+  ],
+  // Status pills under the hero headline.
+  badges: [
+    { emoji: "🎓", text: "Graduating Dec 2026" },
+    { emoji: "🔬", text: "SparkLab · University of Utah" },
+    { emoji: "📍", text: "Salt Lake City · Open to relocation" },
+  ],
   tagline:
     "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-robot interaction.",
   email: "matthewlee453@gmail.com",
