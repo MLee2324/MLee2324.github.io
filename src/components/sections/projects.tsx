@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, AudioLines, Cpu, ScanEye, SunMedium, Sparkles } from "lucide-react";
+import { ArrowUpRight, AudioLines, Cpu, Download, FileText, ScanEye, SunMedium, Sparkles } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -162,6 +162,27 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               ))}
             </div>
             <div className="flex items-center gap-3">
+              {project.poster && (
+                <span className="inline-flex items-center gap-1">
+                  <a
+                    href={project.poster}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Poster
+                  </a>
+                  <a
+                    href={project.poster}
+                    download
+                    aria-label={`Download the ${project.title} poster (PDF)`}
+                    className="rounded-md p-1 text-muted-foreground hover:bg-secondary/60 hover:text-foreground transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                  </a>
+                </span>
+              )}
               {project.github && (
                 <Link
                   href={project.github}

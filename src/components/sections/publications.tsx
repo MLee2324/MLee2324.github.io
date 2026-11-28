@@ -169,7 +169,7 @@ const PublicationsSection = () => {
       <SectionHeader
         id="publications"
         title="Publications"
-        desc="Papers, posters, and presentations"
+        desc="Research papers"
         className="static mb-12 md:mb-16"
       />
       {PUBLICATIONS.length === 0 ? (
