@@ -32,7 +32,7 @@ export const NEWS: NewsItem[] = [
   {
     date: "Apr 2026",
     kind: "project",
-    text: "Completed my senior capstone, ASR Accent Bias Evaluation, comparing how automatic speech recognition systems perform across accents.",
+    text: "Completed my senior capstone, ASR Accent Bias Evaluation: Amazon, Google, and Microsoft speech recognition all made more errors on Indian and Nigerian English than on American English.",
     link: { label: "Poster", href: "/posters/asr-accent-bias/" },
   },
   {

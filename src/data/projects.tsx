@@ -45,10 +45,11 @@ const projects: Project[] = [
     category: "Senior capstone",
     date: "May 2025 – Apr 2026",
     highlights: [
-      "Compared automatic speech recognition accuracy on African American English and White Mainstream English speech.",
-      "Used word error rate plus substitution, deletion, and insertion analysis to investigate dialect-related differences.",
+      "Evaluated Amazon Transcribe, Google Speech-to-Text, and Microsoft Azure Speech on American, Indian, and Nigerian English speech from the Speech Accent Archive.",
+      "Measured word error rate (WER) and word information preserved (WIP): errors rose from American to Indian to Nigerian English on every system, and Microsoft had the highest error overall.",
+      "Four-person senior capstone team, advised by Neal Patwari.",
     ],
-    tech: ["Python", "NLP", "Speech recognition"],
+    tech: ["Python", "Speech recognition", "WER / WIP"],
     poster: "/ASR_Capstone_Poster.pdf",
   },
   {
