@@ -30,12 +30,6 @@ export const NEWS: NewsItem[] = [
     link: { label: "Code", href: "https://github.com/MLee2324/posturechecker" },
   },
   {
-    date: "Apr 2026",
-    kind: "talk",
-    text: "Presented my senior capstone poster on accent bias in automatic speech recognition.",
-    link: { label: "Projects", href: "#projects" },
-  },
-  {
     date: "Jan 2026",
     kind: "research",
     text: "Joined the Utah NLP Lab (Prof. Ana Marasović) to build gold-standard tasks and evaluators for LLM-agent benchmarks.",

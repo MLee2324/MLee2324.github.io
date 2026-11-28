@@ -44,7 +44,6 @@ const projects: Project[] = [
     highlights: [
       "Compared automatic speech recognition accuracy on African American English and White Mainstream English speech.",
       "Used word error rate plus substitution, deletion, and insertion analysis to investigate dialect-related differences.",
-      "Presented as a senior capstone poster at the University of Utah, April 2026.",
     ],
     tech: ["Python", "NLP", "Speech recognition"],
   },
