@@ -44,6 +44,7 @@ export type Publication = {
   };
 };
 
-// Empty for now: the section shows a placeholder until the first entry.
+// Empty for now: the Publications section and its nav link stay hidden until
+// the first entry is added.
 // (The ASR capstone is listed under Projects, not here.)
 export const PUBLICATIONS: Publication[] = [];

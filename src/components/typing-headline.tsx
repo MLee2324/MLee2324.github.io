@@ -10,7 +10,8 @@ export default function TypingHeadline({ phrases, className }: { phrases: string
   const { reducedMotion, ready } = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [length, setLength] = useState(phrases[0].length);
-  const [deleting, setDeleting] = useState(true);
+  // start by holding the first phrase, so it is readable before it is deleted
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     if (!ready || reducedMotion) return;

@@ -164,18 +164,16 @@ function PublicationCard({ pub, index }: { pub: Publication; index: number }) {
 }
 
 const PublicationsSection = () => {
+  // The section (and its nav link) stays hidden until the first entry is added.
+  if (PUBLICATIONS.length === 0) return null;
   return (
     <SectionWrapper id="publications" className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
       <SectionHeader id="publications" title="Publications" />
-      {PUBLICATIONS.length === 0 ? (
-        <p className="text-muted-foreground">Publications will be listed here.</p>
-      ) : (
-        <ol className="flex flex-col gap-4">
-          {PUBLICATIONS.map((pub, index) => (
-            <PublicationCard key={pub.id} pub={pub} index={index} />
-          ))}
-        </ol>
-      )}
+      <ol className="flex flex-col gap-4">
+        {PUBLICATIONS.map((pub, index) => (
+          <PublicationCard key={pub.id} pub={pub} index={index} />
+        ))}
+      </ol>
     </SectionWrapper>
   );
 };

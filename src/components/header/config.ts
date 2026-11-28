@@ -1,5 +1,6 @@
 export type Link = { title: string; href: string };
 import { config } from "@/data/config";
+import { PUBLICATIONS } from "@/data/publications";
 
 // Section links (shown inline in the header on wide screens and in the menu
 // on small ones) followed by the documents.
@@ -9,7 +10,8 @@ const sections: Link[] = [
   { title: "Research", href: "/#research" },
   { title: "Experience", href: "/#experience" },
   { title: "Projects", href: "/#projects" },
-  { title: "Publications", href: "/#publications" },
+  // Hidden until the first publication is added.
+  ...(PUBLICATIONS.length > 0 ? [{ title: "Publications", href: "/#publications" }] : []),
   { title: "Skills", href: "/#skills" },
 ];
 

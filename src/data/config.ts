@@ -48,7 +48,7 @@ const config = {
   cv: "/Matthew_Lee_CV.pdf" as string | null,
 
   // Social preview image in /public (1200x630 works well). null = none.
-  ogImage: null as string | null,
+  ogImage: "/og.png" as string | null,
 
   get ogImg() {
     return this.ogImage ? this.site + this.ogImage : null;

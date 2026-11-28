@@ -11,6 +11,7 @@ import { NEWS } from "@/data/news";
 import { RESEARCH_AREAS } from "@/data/research";
 import { EXPERIENCE, SKILLS } from "@/data/constants";
 import projects from "@/data/projects";
+import { PUBLICATIONS } from "@/data/publications";
 import { cn } from "@/lib/utils";
 
 // A small interactive terminal (open with the header button or the ` key).
@@ -19,7 +20,7 @@ import { cn } from "@/lib/utils";
 type Line = { kind: "in" | "out" | "err" | "accent"; text: string };
 
 const PROMPT = "guest@mlee2324:~$";
-const SECTIONS = ["about", "news", "research", "experience", "projects", "publications", "skills"];
+const SECTIONS = ["about", "news", "research", "experience", "projects", ...(PUBLICATIONS.length > 0 ? ["publications"] : []), "skills"];
 
 const NEOFETCH_ART = [
   "  __  __ _      ",
@@ -161,7 +162,7 @@ export default function Terminal({ className }: { className?: string }) {
       case "skills":
         return out(SKILLS.map((s) => s.name).join(" · "));
       case "ls":
-        return out("about/  news/  research/  experience/  projects/  publications/  skills/  matthew_lee.py  resume.pdf  cv.pdf");
+        return out(`${SECTIONS.map((s) => `${s}/`).join("  ")}  matthew_lee.py  resume.pdf  cv.pdf`);
       case "pwd":
         return out("/home/guest/mlee2324.github.io");
       case "date":
