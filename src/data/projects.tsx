@@ -60,6 +60,7 @@ const projects: Project[] = [
       "Implemented manual and automatic control modes and displayed system status on an LCD.",
     ],
     tech: ["STM32F072", "C", "I2C", "PWM"],
+    github: "https://github.com/uofu-emb-26/5780_MiniProj_SmartBlinds",
   },
   {
     id: "16-bit-cpu",

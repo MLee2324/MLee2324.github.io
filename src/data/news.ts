@@ -33,7 +33,7 @@ export const NEWS: NewsItem[] = [
     date: "Apr 2026",
     kind: "talk",
     text: "Presented my senior capstone poster on accent bias in automatic speech recognition.",
-    link: { label: "Publications", href: "#publications" },
+    link: { label: "Projects", href: "#projects" },
   },
   {
     date: "Jan 2026",

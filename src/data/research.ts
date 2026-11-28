@@ -31,7 +31,7 @@ export const RESEARCH_THEMES: ResearchTheme[] = [
     body: "Combining video, gaze, and speech so a model can follow a task, and learning from human corrections to get better over time.",
     work: [
       { label: "Vision-language guidance", href: "#experience" },
-      { label: "ASR accent bias", href: "#publications" },
+      { label: "ASR accent bias", href: "#projects" },
       { label: "LLM-agent benchmarks", href: "#experience" },
     ],
   },

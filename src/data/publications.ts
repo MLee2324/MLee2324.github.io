@@ -44,15 +44,6 @@ export type Publication = {
   };
 };
 
-export const PUBLICATIONS: Publication[] = [
-  {
-    id: "asr-accent-bias-poster",
-    type: "Poster",
-    title: "ASR Accent Bias Evaluation",
-    venue: "Senior Capstone Poster, University of Utah",
-    date: "April 2026",
-    summary:
-      "Compared automatic speech recognition accuracy on African American English and White Mainstream English using word error rate and error-type analysis.",
-    selected: true,
-  },
-];
+// Empty for now: the section shows a placeholder until the first entry.
+// (The ASR capstone is listed under Projects, not here.)
+export const PUBLICATIONS: Publication[] = [];
