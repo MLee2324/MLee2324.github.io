@@ -41,7 +41,7 @@ Optional repository variables (**Settings → Secrets and variables → Actions 
 GitHub Pages has no server, so:
 
 - The contact section and form were removed; visitors reach me by email.
-- The template's deployment-tracking beacon was removed, and the footer credits the template instead.
+- The template's deployment-tracking beacon was removed. The template is credited here and in `LICENSE`, which the MIT license requires keeping.
 - Umami analytics only loads when both `UMAMI_DOMAIN` (your own Umami script URL) and `UMAMI_SITE_ID` are set.
 - The custom HTTP headers were removed (Pages doesn't support them).
 - The template's decorative effects (particles, elastic cursor, right-click reactions, live cursors and chat) were removed. The multiplayer game code remains but only loads if `NEXT_PUBLIC_WS_URL` points at a realtime server you run.

@@ -24,14 +24,6 @@ function Footer() {
               GitHub
             </a>
           )}
-          <a
-            href="https://github.com/Naresh-Khatri/3d-portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground"
-          >
-            Template credit
-          </a>
         </nav>
       </div>
     </footer>
