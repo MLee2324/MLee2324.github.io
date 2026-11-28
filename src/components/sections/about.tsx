@@ -8,14 +8,14 @@ const AboutSection = () => (
     <SectionHeader id="about" title="About" />
     <div className="grid items-start gap-10 md:grid-cols-[1fr_1fr]">
       <div>
-        <p className="text-[17px] leading-relaxed text-foreground/90" data-speak="">
+        <p className="text-[17px] leading-relaxed text-foreground/90">
           {ABOUT.intro}
         </p>
 
         <h3 className="mb-3 mt-8 text-sm font-semibold text-foreground">Right now</h3>
         <ul className="space-y-2.5">
           {ABOUT.now.map((n) => (
-            <li key={n.label} className="flex gap-3 text-sm leading-relaxed" data-speak={`${n.label}: ${n.text}.`}>
+            <li key={n.label} className="flex gap-3 text-sm leading-relaxed">
               <span aria-hidden className="text-base leading-6">
                 {n.emoji}
               </span>

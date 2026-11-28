@@ -86,14 +86,6 @@
   to { transform: translateY(1000px); }
 }
 
-/* "Listen to this page": the block being read aloud */
-.speaking {
-  border-radius: 0.5rem;
-  background: hsl(var(--accent-brand) / 0.16);
-  box-shadow: 0 0 0 6px hsl(var(--accent-brand) / 0.16), 0 0 0 8px hsl(var(--accent-brand) / 0.55);
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
 /* ---- Motion ----
    Reduced motion comes from the OS setting, unless the visitor overrides it in
    the accessibility menu (data-motion on <html>, set in providers.tsx). */

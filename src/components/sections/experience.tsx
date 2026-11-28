@@ -20,14 +20,7 @@ const ExperienceSection = () => {
           const plain = exp.description.filter((d): d is string => typeof d === "string");
           const groups = exp.description.filter((d): d is { heading: string; points: string[] } => typeof d !== "string");
           return (
-            <li
-              key={exp.id}
-              data-speak={[
-                `${exp.title}, ${exp.company.replace(" · ", ". ")}, ${exp.periods.map((p) => `${p.start} to ${p.end}`).join(", ")}.`,
-                ...plain,
-                ...groups.flatMap((g) => [g.heading + ".", ...g.points]),
-              ].join(" ")}
-            >
+            <li key={exp.id}>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
                 <p className="shrink-0 text-sm tabular-nums text-muted-foreground">

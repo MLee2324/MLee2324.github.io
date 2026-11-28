@@ -52,7 +52,6 @@ const ProjectsSection = () => (
           <li
             key={project.id}
             className={project.image ? "grid gap-5 sm:grid-cols-[12rem_1fr]" : undefined}
-            data-speak={`Project: ${project.title}, ${project.date}. ${project.highlights.join(" ")}`}
           >
             {project.image && (
               // eslint-disable-next-line @next/next/no-img-element

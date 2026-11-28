@@ -33,7 +33,6 @@ The headshot is `public/assets/me.jpg` (`config.photo`; set it to `null` to show
 ## Extras
 
 - **CV overlay** on the hero photo (`src/components/cv-overlay.tsx`), drawn from real MediaPipe output. Visitors can toggle it.
-- **Listen** button (`src/components/listen-button.tsx`) reads every element marked `data-speak` aloud with the browser's speech synthesis.
 - **Terminal** (`src/components/terminal.tsx`): press <kbd>`</kbd> or use the header button. Commands are built from the data files.
 
 ## Deploy
