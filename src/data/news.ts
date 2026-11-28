@@ -5,6 +5,8 @@
 export type NewsItem = {
   date: string; // e.g. "Sep 2026"
   text: string;
+  /** Replaces `text` once config.graduation.switchOn has passed. */
+  textAfterGraduation?: string;
   link?: { label: string; href: string };
 };
 
@@ -12,6 +14,7 @@ export const NEWS: NewsItem[] = [
   {
     date: "Dec 2026",
     text: "Graduating with a B.S. in Computer Engineering from the University of Utah.",
+    textAfterGraduation: "Graduated with a B.S. in Computer Engineering from the University of Utah.",
   },
   {
     date: "Sep 2026",

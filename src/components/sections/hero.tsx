@@ -5,6 +5,7 @@ import { config } from "@/data/config";
 import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import HeroPhoto from "../hero-photo";
+import { GradText } from "@/lib/graduation";
 import TypingHeadline from "../typing-headline";
 
 const button =
@@ -36,7 +37,7 @@ const HeroSection = () => {
                 className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-3 py-1 text-xs text-foreground/85"
               >
                 <span aria-hidden>{b.emoji}</span>
-                {b.text}
+                {b.textAfterGraduation ? <GradText before={b.text} after={b.textAfterGraduation} /> : b.text}
               </li>
             ))}
           </ul>

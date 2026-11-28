@@ -1,7 +1,8 @@
 import { config } from "@/data/config";
 
-// Static export: evaluated at build time, so these show the deploy date.
-const BUILT = new Date();
+// The deploy date, set in next.config.mjs. (A plain `new Date()` here would
+// use the visitor's clock, since this renders in the browser too.)
+const BUILT = new Date(process.env.BUILD_DATE ?? Date.now());
 const UPDATED = BUILT.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 
 // Just the copyright line; the hero already has every link.

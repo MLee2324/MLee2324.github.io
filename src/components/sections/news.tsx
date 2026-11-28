@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { NEWS, NEWS_PREVIEW_COUNT } from "@/data/news";
+import { useGraduated } from "@/lib/graduation";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
 
 const NewsSection = () => {
   const [showAll, setShowAll] = useState(false);
+  const graduated = useGraduated();
   if (NEWS.length === 0) return null;
   const items = showAll ? NEWS : NEWS.slice(0, NEWS_PREVIEW_COUNT);
 
@@ -24,7 +26,7 @@ const NewsSection = () => {
             >
               <time className="text-sm font-medium tabular-nums text-muted-foreground">{item.date}</time>
               <p className="leading-relaxed text-foreground/90">
-                {item.text}
+                {graduated && item.textAfterGraduation ? item.textAfterGraduation : item.text}
                 {item.link && (
                   <>
                     {" "}

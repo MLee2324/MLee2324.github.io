@@ -47,7 +47,7 @@ export const EXPERIENCE: Experience[] = [
         points: [
           "Developing a wearable AI assistant using Meta Aria glasses and vision-language models with the EgoBranch team at the University of Utah and National University of Singapore, led by Prof. Kenneth Marino (Utah) and Prof. Weiyu Liu (NUS).",
           "Tested a ROS 2 pipeline connecting egocentric camera input, gaze signals, and text-to-speech; completed two successful multi-step pen-sorting trials.",
-          "Measured average planning round-trip times of 2.54 s and 2.78 s in the two successful trials.",
+          "Measured average planning round-trip times of 2.5–2.8 s.",
           "Exploring how video, gaze, speech, and human corrections could provide learning signals for multimodal agents.",
           "Developing a board-game evaluation to study when a wearable assistant should guide, ask questions, or pause as people learn an unfamiliar game, and whether its help supports later independent play.",
         ],
@@ -68,7 +68,7 @@ export const EXPERIENCE: Experience[] = [
     description: [
       "Contributed to LLM-agent benchmarking by creating and validating gold-standard document and spreadsheet tasks.",
       "Developed Python evaluators that check text accuracy, image location and matching, document layout, and spreadsheet cell content and formatting.",
-      "Created and validated gold-standard task evaluations, including checks for a wedding color-palette spreadsheet.",
+      "Created and validated gold-standard evaluations for document and spreadsheet tasks.",
     ],
   },
 ];

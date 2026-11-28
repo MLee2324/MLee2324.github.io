@@ -24,7 +24,7 @@ const projects: Project[] = [
     date: "Jun – Aug 2026",
     highlights: [
       "Built a real-time posture monitor that classifies sitting posture from webcam video and body landmarks.",
-      "Extracted neck angle, spine angle, forward head offset, and shoulder tilt; collected and labeled 2,785+ posture samples.",
+      "Extracted neck angle, spine angle, forward head offset, and shoulder tilt; collected and labeled 2,700+ posture samples.",
       "Trained a Random Forest classifier that reached 97.5% accuracy separating good and bad sitting posture.",
     ],
     tech: ["Python", "OpenCV", "MediaPipe", "scikit-learn"],

@@ -7,6 +7,9 @@ const nextConfig = {
   // /resume -> /resume/index.html, which Pages serves without extra config.
   trailingSlash: true,
   reactStrictMode: true,
+  // Fixed at build time, so the footer's "Last updated" is the deploy date
+  // in the browser too (not the visitor's clock).
+  env: { BUILD_DATE: new Date().toISOString() },
 };
 
 export default nextConfig;

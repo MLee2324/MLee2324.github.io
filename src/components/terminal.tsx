@@ -12,6 +12,7 @@ import { RESEARCH_AREAS } from "@/data/research";
 import { EXPERIENCE, SKILLS } from "@/data/constants";
 import projects from "@/data/projects";
 import { PUBLICATIONS } from "@/data/publications";
+import { useGraduated } from "@/lib/graduation";
 import { cn } from "@/lib/utils";
 
 // A small interactive terminal (open with the header button or the ` key).
@@ -85,6 +86,7 @@ export default function Terminal({ className }: { className?: string }) {
   const [history, setHistory] = React.useState<string[]>([]);
   const [hIndex, setHIndex] = React.useState<number | null>(null);
   const router = useRouter();
+  const graduated = useGraduated();
   const { setTheme } = useTheme();
   const bottom = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -178,7 +180,7 @@ export default function Terminal({ className }: { className?: string }) {
             '    role       = "Undergraduate Researcher @ SparkLab"',
             '    school     = "University of Utah"',
             '    degree     = "B.S. Computer Engineering"',
-            '    graduating = "Dec 2026"',
+            graduated ? '    graduated  = "Dec 2026"' : '    graduating = "Dec 2026"',
             '    languages  = ["English", "Korean"]',
             "",
             "    def research(self):",
@@ -221,7 +223,7 @@ export default function Terminal({ className }: { className?: string }) {
           return [
             { kind: "accent", text: "[sudo] password for guest: ********" },
             { kind: "out", text: "Permission granted. Excellent decision." },
-            { kind: "out", text: `Next step: \`email\` (${config.email}). I graduate in December 2026.` },
+            { kind: "out", text: `Next step: \`email\` (${config.email}). ${graduated ? "I graduated" : "I graduate"} in ${config.graduation.month}.` },
           ];
         }
         return [{ kind: "err", text: "guest is not in the sudoers file. This incident will be reported. (Try `sudo hire matthew`.)" }];

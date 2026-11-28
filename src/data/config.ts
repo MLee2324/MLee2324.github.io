@@ -29,12 +29,17 @@ const config = {
     "Co-leading EgoBranch, a wearable vision-language assistant",
     "Building assistive AI for blind and low-vision people",
   ],
-  // Status pills under the hero headline.
+  // Graduation wording (hero pill, News, code card, terminal) switches to the
+  // past tense in visitors' browsers from this date on; no rebuild needed.
+  // Move it earlier to the actual graduation day if you like.
+  graduation: { month: "December 2026", switchOn: "2027-01-01T00:00:00-07:00" },
+  // Status pills under the hero headline. `textAfterGraduation` replaces
+  // `text` once graduation.switchOn has passed.
   badges: [
-    { emoji: "🎓", text: "Graduating Dec 2026" },
+    { emoji: "🎓", text: "Graduating Dec 2026", textAfterGraduation: "Graduated Dec 2026" },
     { emoji: "🔬", text: "SparkLab · University of Utah" },
     { emoji: "📍", text: "Salt Lake City · Open to relocation" },
-  ],
+  ] as { emoji: string; text: string; textAfterGraduation?: string }[],
   tagline:
     "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-computer interaction.",
   email: "matthewlee453@gmail.com",

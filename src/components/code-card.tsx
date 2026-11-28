@@ -1,4 +1,7 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import { useGraduated } from "@/lib/graduation";
 
 // "Code mode" bio card: the About facts written as a small Python class, in
 // the style of GitHub profile READMEs. Colors use the site's tokens so it
@@ -25,7 +28,6 @@ const LINES: Tok[][] = [
   [p("    school     = "), s("University of Utah")],
   [p("    degree     = "), s("B.S. Computer Engineering")],
   [p("    graduating = "), s("Dec 2026")],
-  [p("    gpa        = {"), s("major"), p(": "), ["3.49", "num"], p(", "), s("cumulative"), p(": "), ["3.43", "num"], p("}")],
   [p("    honors     = ["), s("Dean's List"), p("] "), ["# Sp25, Fa25, Sp26", "cmt"]],
   [p("    based_in   = "), s("Salt Lake City"), p("  "), ["# open to relocation", "cmt"]],
   [p("    languages  = ["), s("English"), p(", "), s("Korean"), p("]")],
@@ -40,6 +42,10 @@ const LINES: Tok[][] = [
 const indentOf = (line: Tok[]) => line.map(([t]) => t).join("").match(/^ */)![0].length;
 
 export default function CodeCard() {
+  const graduated = useGraduated();
+  const lines = graduated
+    ? LINES.map((line) => (line[0][0] === "    graduating = " ? [p("    graduated  = "), ...line.slice(1)] : line))
+    : LINES;
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-secondary/30">
       <figcaption className="flex items-center gap-2 border-b border-border px-3 py-2">
@@ -55,7 +61,7 @@ export default function CodeCard() {
           On wide screens every line fits, so they stay unwrapped. */}
       <pre className="p-3 font-mono lg:overflow-x-auto text-[11.5px] leading-6 sm:p-4 sm:text-[12.5px]">
         <code>
-          {LINES.map((line, i) => {
+          {lines.map((line, i) => {
             const hang = `${indentOf(line) + 4}ch`;
             return (
               <span key={i} className="flex">
