@@ -22,7 +22,7 @@ const PROMPT = "guest@mlee2324:~$";
 const SECTIONS = ["about", "news", "research", "experience", "projects", "publications", "skills"];
 
 const NEOFETCH_ART = [
-  "  __  __  __     ",
+  "  __  __ _      ",
   " |  \\/  | |     ",
   " | |\\/| | |     ",
   " | |  | | |___  ",
