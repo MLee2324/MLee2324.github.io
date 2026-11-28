@@ -62,7 +62,7 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     id: 2,
-    periods: [{ start: "Jan 2026", end: "Sep 2026" }],
+    periods: [{ start: "Jan 2026", end: "Jun 2026" }],
     title: "Undergraduate Research Assistant",
     company: "NLP Lab, University of Utah · Advisor: Prof. Ana Marasović",
     description: [
