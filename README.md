@@ -43,7 +43,3 @@ Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site 
 Optional repository variable (**Settings → Secrets and variables → Actions → Variables**):
 
 - `NEXT_PUBLIC_GA_ID`: Google Analytics measurement ID.
-
-## License
-
-© 2026 Matthew Lee. All rights reserved.

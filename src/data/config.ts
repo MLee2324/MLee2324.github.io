@@ -38,7 +38,6 @@ const config = {
   tagline:
     "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-robot interaction.",
   email: "matthewlee453@gmail.com",
-  location: "Salt Lake City, UT · Open to relocation",
   site: "https://mlee2324.github.io",
 
   // Hero photo in /public, e.g. "/assets/me.jpg". null shows the "ML" initials card.
@@ -50,10 +49,6 @@ const config = {
 
   // Social preview image in /public (1200x630 works well). null = none.
   ogImage: null as string | null,
-
-  // for github stars button
-  githubUsername: "MLee2324",
-  githubRepo: "MLee2324.github.io",
 
   get ogImg() {
     return this.ogImage ? this.site + this.ogImage : null;
