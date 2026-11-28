@@ -20,7 +20,7 @@ export const SKILLS: Skill[] = [
   { name: "OpenCV", icon: "/assets/skills/opencv.svg", description: "Image processing and real-time video", color: "#5c3ee8" },
   { name: "MediaPipe", icon: "/assets/skills/mediapipe.svg", description: "Body landmarks for pose estimation", color: "#0097a7" },
   { name: "ROS 2", icon: "/assets/skills/ros.svg", description: "Robot pipelines for camera, gaze, and speech", color: "#22314e", invertInDark: true },
-  { name: "Linux", icon: "/assets/skills/linux.svg", description: "My default development environment", color: "#fcc624" },
+  { name: "Linux", icon: "/assets/skills/linux.png", description: "My default development environment", color: "#fcc624" },
   { name: "Git", icon: "/assets/skills/git.svg", description: "Version control for every project", color: "#f1502f" },
 ];
 

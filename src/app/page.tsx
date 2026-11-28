@@ -26,7 +26,7 @@ const personJsonLd = {
 
 export default function MainPage() {
   return (
-    <main>
+    <main id="content">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}

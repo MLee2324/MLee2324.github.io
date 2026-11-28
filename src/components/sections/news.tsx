@@ -31,7 +31,7 @@ const NewsSection = () => {
                     <Link
                       href={item.link.href}
                       {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                      className="whitespace-nowrap text-accent2 underline-offset-4 hover:underline"
+                      className="whitespace-nowrap text-accent2 underline decoration-accent2/40 underline-offset-4 transition-colors hover:decoration-accent2"
                     >
                       {item.link.label}
                     </Link>

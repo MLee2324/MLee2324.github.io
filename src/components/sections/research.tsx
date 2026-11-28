@@ -16,7 +16,7 @@ const ResearchSection = () => (
             {area.work.map((w, i) => (
               <span key={w.label}>
                 {i > 0 && ", "}
-                <Link href={w.href} className="text-accent2 underline-offset-4 hover:underline">
+                <Link href={w.href} className="text-accent2 underline decoration-accent2/40 underline-offset-4 transition-colors hover:decoration-accent2">
                   {w.label}
                 </Link>
               </span>

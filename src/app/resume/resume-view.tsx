@@ -59,7 +59,8 @@ export function DocumentView({
 
   if (!current.path) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center font-sans">
+      <main id="content" className="flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center font-sans">
+        <h1 className="sr-only">{`${config.author}: ${current.label}`}</h1>
         <p className="text-lg text-muted-foreground">My {current.label.toLowerCase()} will be posted here soon.</p>
         <Link
           href="/"
@@ -68,12 +69,13 @@ export function DocumentView({
           <ArrowLeft className="h-4 w-4" />
           Back to portfolio
         </Link>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="flex min-h-screen flex-col font-sans">
+    <main id="content" className="flex min-h-screen flex-col font-sans">
+      <h1 className="sr-only">{`${config.author}: ${current.label}`}</h1>
       <div className={cn("mx-auto w-full shrink-0 px-4 pt-20 md:pt-24", width)}>
         <motion.div
           initial={{ opacity: 0, y: -6 }}
@@ -145,6 +147,6 @@ export function DocumentView({
           />
         </motion.div>
       </div>
-    </div>
+    </main>
   );
 }

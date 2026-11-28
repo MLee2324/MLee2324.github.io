@@ -8,7 +8,7 @@ type Tok = [string, "kw" | "cls" | "str" | "num" | "cmt" | "fn" | "plain"];
 
 const C: Record<Tok[1], string> = {
   kw: "text-fuchsia-600 dark:text-fuchsia-400",
-  cls: "text-amber-600 dark:text-amber-300",
+  cls: "text-amber-700 dark:text-amber-300",
   str: "text-emerald-700 dark:text-emerald-400",
   num: "text-sky-700 dark:text-sky-300",
   cmt: "text-muted-foreground italic",
@@ -59,7 +59,7 @@ export default function CodeCard() {
             const hang = `${indentOf(line) + 4}ch`;
             return (
               <span key={i} className="flex">
-                <span aria-hidden className="mr-3 w-4 shrink-0 select-none text-right text-muted-foreground/50 sm:mr-4">
+                <span aria-hidden className="mr-3 w-4 shrink-0 select-none text-right text-muted-foreground sm:mr-4">
                   {i + 1}
                 </span>
                 <span
