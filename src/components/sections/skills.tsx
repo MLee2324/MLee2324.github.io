@@ -1,47 +1,55 @@
-import { Cpu, Database } from "lucide-react";
-import { SKILL_GROUPS, type Skill } from "@/data/constants";
+"use client";
+
+import type { CSSProperties } from "react";
+import { motion } from "motion/react";
+import { SKILLS } from "@/data/constants";
+import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
-
-const GENERIC = { cpu: Cpu, database: Database } as const;
-
-// Logos sit on a white tile so dark logos (ROS, Linux) stay visible in dark mode.
-const SkillIcon = ({ icon }: { icon: string }) => {
-  const Generic = GENERIC[icon as keyof typeof GENERIC];
-  return (
-    <span aria-hidden className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border bg-white">
-      {Generic ? (
-        <Generic className="h-4 w-4 text-slate-600" />
-      ) : (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={icon} alt="" width={18} height={18} loading="lazy" className="h-[18px] w-[18px] object-contain" />
-      )}
-    </span>
-  );
-};
-
-const SkillChip = ({ skill }: { skill: Skill }) => (
-  <li className="flex items-center gap-2 rounded-lg border border-border bg-secondary/30 py-1 pl-1 pr-3 text-sm text-foreground">
-    <SkillIcon icon={skill.icon} />
-    {skill.name}
-  </li>
-);
 
 const SkillsSection = () => (
   <SectionWrapper id="skills" className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
     <SectionHeader id="skills" title="Skills" />
-    <div className="space-y-5">
-      {SKILL_GROUPS.map((g) => (
-        <div key={g.label} className="grid gap-2 sm:grid-cols-[9rem_1fr] sm:gap-6">
-          <h3 className="pt-1.5 text-sm font-medium text-muted-foreground">{g.label}</h3>
-          <ul className="flex flex-wrap gap-2">
-            {g.items.map((s) => (
-              <SkillChip key={s.name} skill={s} />
-            ))}
-          </ul>
-        </div>
+    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4">
+      {SKILLS.map((skill, i) => (
+        <motion.li
+          key={skill.name}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, delay: i * 0.04, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-40px" }}
+          style={{ "--skill": skill.color } as CSSProperties}
+          className={cn(
+            "group relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl p-5 text-center",
+            "border border-border/60 bg-secondary/20",
+            "transition-[transform,border-color,background-color,box-shadow] duration-300",
+            "hover:-translate-y-1 hover:border-[var(--skill)] hover:bg-secondary/40",
+            "hover:shadow-[0_10px_40px_-12px_var(--skill)]"
+          )}
+        >
+          {/* soft glow in the skill's color */}
+          <span
+            aria-hidden
+            style={{ background: "var(--skill)" }}
+            className="pointer-events-none absolute -top-6 h-16 w-16 rounded-full opacity-25 blur-2xl transition-opacity duration-300 group-hover:opacity-70"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={skill.icon}
+            alt=""
+            width={44}
+            height={44}
+            loading="lazy"
+            className={cn(
+              "relative size-10 object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-110 md:size-11",
+              skill.invertInDark && "dark:invert"
+            )}
+          />
+          <span className="relative text-sm font-semibold text-foreground md:text-base">{skill.name}</span>
+          <span className="relative text-xs leading-relaxed text-muted-foreground">{skill.description}</span>
+        </motion.li>
       ))}
-    </div>
+    </ul>
   </SectionWrapper>
 );
 

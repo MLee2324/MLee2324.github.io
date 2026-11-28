@@ -22,7 +22,7 @@ pnpm build      # static site in ./out
 | `src/data/about.ts` | About section: intro, facts, current coursework |
 | `src/data/news.ts` | Dated updates for the News section |
 | `src/data/research.ts` | The three research areas and the work linked to each |
-| `src/data/constants.ts` | Research experience and skills with logos (grouped as on the CV) |
+| `src/data/constants.ts` | Research experience and the Skills grid (logo, description, color) |
 | `src/data/projects.tsx` | Projects, tech, optional screenshot, code link, poster PDF |
 | `src/data/publications.ts` | Papers and talks. Optional abstract, BibTeX (generated if omitted), and "Selected" flag |
 | `public/` | Résumé, CV, and poster PDFs |

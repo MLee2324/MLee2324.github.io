@@ -38,6 +38,8 @@ export const metadata: Metadata = {
     description: config.description.short,
     ...(config.ogImg && { images: [config.ogImg] }),
   },
+  // Blank tab icon for now (no image), which also stops the /favicon.ico request.
+  icons: { icon: "data:," },
   robots: {
     index: true,
     follow: true,

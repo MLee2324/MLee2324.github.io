@@ -1,46 +1,27 @@
-// Skills, grouped as on the CV. `icon` is a logo in /public/assets/skills;
-// skills without an official logo use a generic icon ("cpu" or "database").
-export type Skill = { name: string; icon: string };
+// Skills shown in the Skills grid, in display order. `icon` is a logo in
+// /public/assets/skills; `color` tints the tile's glow on hover.
+export type Skill = {
+  name: string;
+  icon: string;
+  description: string;
+  color: string;
+  /** Invert the logo in dark mode (for dark logos like ROS). */
+  invertInDark?: boolean;
+};
 
-export const SKILL_GROUPS: { label: string; items: Skill[] }[] = [
-  {
-    label: "Advanced",
-    items: [
-      { name: "Python", icon: "/assets/skills/python.svg" },
-      { name: "C++", icon: "/assets/skills/cplusplus.svg" },
-      { name: "C#", icon: "/assets/skills/csharp.svg" },
-      { name: "MATLAB", icon: "/assets/skills/matlab.svg" },
-      { name: "Verilog", icon: "/assets/skills/verilog.svg" },
-      { name: "x86 Assembly", icon: "cpu" },
-      { name: "PyTorch", icon: "/assets/skills/pytorch.svg" },
-      { name: "scikit-learn", icon: "/assets/skills/scikitlearn.svg" },
-    ],
-  },
-  {
-    label: "Basic",
-    items: [
-      { name: "C", icon: "/assets/skills/c.svg" },
-      { name: "Java", icon: "/assets/skills/java.svg" },
-      { name: "MIPS Assembly", icon: "cpu" },
-    ],
-  },
-  {
-    label: "Research tools",
-    items: [
-      { name: "ROS 2", icon: "/assets/skills/ros.svg" },
-      { name: "OpenCV", icon: "/assets/skills/opencv.svg" },
-      { name: "MediaPipe", icon: "/assets/skills/mediapipe.svg" },
-      { name: "Git", icon: "/assets/skills/git.svg" },
-      { name: "Linux", icon: "/assets/skills/linux.svg" },
-    ],
-  },
-  {
-    label: "Web and data",
-    items: [
-      { name: "HTML/CSS", icon: "/assets/skills/html5.svg" },
-      { name: "SQL", icon: "database" },
-    ],
-  },
+export const SKILLS: Skill[] = [
+  { name: "Python", icon: "/assets/skills/python.svg", description: "Evaluation tooling, ML models, and vision pipelines", color: "#3776ab" },
+  { name: "C++", icon: "/assets/skills/cplusplus.svg", description: "Performance-critical and systems code", color: "#00599c" },
+  { name: "C", icon: "/assets/skills/c.svg", description: "Firmware for STM32 microcontrollers", color: "#a8b9cc" },
+  { name: "Verilog", icon: "/assets/skills/verilog.svg", description: "RTL design and testbenches, including a 16-bit CPU", color: "#e8a33d" },
+  { name: "MATLAB", icon: "/assets/skills/matlab.svg", description: "Numerical computing and signal processing", color: "#e16737" },
+  { name: "PyTorch", icon: "/assets/skills/pytorch.svg", description: "Training and evaluating deep learning models", color: "#ee4c2c" },
+  { name: "scikit-learn", icon: "/assets/skills/scikitlearn.svg", description: "Classical ML, like the posture classifier", color: "#f7931e" },
+  { name: "OpenCV", icon: "/assets/skills/opencv.svg", description: "Image processing and real-time video", color: "#5c3ee8" },
+  { name: "MediaPipe", icon: "/assets/skills/mediapipe.svg", description: "Body landmarks for pose estimation", color: "#0097a7" },
+  { name: "ROS 2", icon: "/assets/skills/ros.svg", description: "Robot pipelines for camera, gaze, and speech", color: "#22314e", invertInDark: true },
+  { name: "Linux", icon: "/assets/skills/linux.svg", description: "My default development environment", color: "#fcc624" },
+  { name: "Git", icon: "/assets/skills/git.svg", description: "Version control for every project", color: "#f1502f" },
 ];
 
 export type Experience = {
