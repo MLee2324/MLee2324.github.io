@@ -1,9 +1,46 @@
-// Skills, grouped as on the CV.
-export const SKILL_GROUPS: { label: string; items: string[] }[] = [
-  { label: "Advanced", items: ["Python", "C++", "C#", "MATLAB", "Verilog", "x86 Assembly", "PyTorch", "scikit-learn"] },
-  { label: "Basic", items: ["C", "Java", "MIPS Assembly"] },
-  { label: "Research tools", items: ["ROS 2", "OpenCV", "MediaPipe", "Git", "Linux"] },
-  { label: "Web and data", items: ["HTML/CSS", "SQL"] },
+// Skills, grouped as on the CV. `icon` is a logo in /public/assets/skills;
+// skills without an official logo use a generic icon ("cpu" or "database").
+export type Skill = { name: string; icon: string };
+
+export const SKILL_GROUPS: { label: string; items: Skill[] }[] = [
+  {
+    label: "Advanced",
+    items: [
+      { name: "Python", icon: "/assets/skills/python.svg" },
+      { name: "C++", icon: "/assets/skills/cplusplus.svg" },
+      { name: "C#", icon: "/assets/skills/csharp.svg" },
+      { name: "MATLAB", icon: "/assets/skills/matlab.svg" },
+      { name: "Verilog", icon: "/assets/skills/verilog.svg" },
+      { name: "x86 Assembly", icon: "cpu" },
+      { name: "PyTorch", icon: "/assets/skills/pytorch.svg" },
+      { name: "scikit-learn", icon: "/assets/skills/scikitlearn.svg" },
+    ],
+  },
+  {
+    label: "Basic",
+    items: [
+      { name: "C", icon: "/assets/skills/c.svg" },
+      { name: "Java", icon: "/assets/skills/java.svg" },
+      { name: "MIPS Assembly", icon: "cpu" },
+    ],
+  },
+  {
+    label: "Research tools",
+    items: [
+      { name: "ROS 2", icon: "/assets/skills/ros.svg" },
+      { name: "OpenCV", icon: "/assets/skills/opencv.svg" },
+      { name: "MediaPipe", icon: "/assets/skills/mediapipe.svg" },
+      { name: "Git", icon: "/assets/skills/git.svg" },
+      { name: "Linux", icon: "/assets/skills/linux.svg" },
+    ],
+  },
+  {
+    label: "Web and data",
+    items: [
+      { name: "HTML/CSS", icon: "/assets/skills/html5.svg" },
+      { name: "SQL", icon: "database" },
+    ],
+  },
 ];
 
 export type Experience = {

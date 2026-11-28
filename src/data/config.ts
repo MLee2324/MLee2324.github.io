@@ -28,7 +28,7 @@ const config = {
   site: "https://mlee2324.github.io",
 
   // Hero photo in /public, e.g. "/assets/me.jpg". null shows the "ML" initials card.
-  photo: null as string | null,
+  photo: "/assets/me.jpg" as string | null,
 
   // PDFs in /public. Set one to null to hide its buttons and links.
   resume: "/Matthew_Lee_Resume.pdf" as string | null,
