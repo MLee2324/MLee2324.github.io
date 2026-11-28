@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail } from "lucide-react";
 import { ABOUT } from "@/data/about";
-import { config } from "@/data/config";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionWrapper from "../ui/section-wrapper";
@@ -42,24 +40,15 @@ const AboutSection = () => {
                       <dd className="mt-1 font-semibold">{fact.value}</dd>
                     </div>
                   ))}
-                  <div className="sm:col-span-2">
-                    <dt className="text-xs uppercase tracking-widest text-muted-foreground">Email</dt>
-                    <dd className="mt-1 font-semibold">
-                      <a
-                        href={`mailto:${config.email}`}
-                        className="pointer-events-auto inline-flex items-center gap-2 hover:underline underline-offset-4"
-                      >
-                        <Mail className="w-4 h-4" />
-                        {config.email}
-                      </a>
-                    </dd>
-                  </div>
                 </dl>
               </CardContent>
             </Card>
           </motion.div>
 
-          <div className="md:col-span-2 grid gap-4 md:grid-rows-3">
+          <div
+            className="md:col-span-2 grid gap-4"
+            style={{ gridTemplateRows: `repeat(${ABOUT.highlights.length}, minmax(0, 1fr))` }}
+          >
             {ABOUT.highlights.map((stat, i) => (
               <motion.div key={stat.label} {...fadeUp(i + 1)} className="h-full">
                 <Card className={cn(cardClass, "h-full flex flex-col justify-center")}>

@@ -30,6 +30,12 @@ export const NEWS: NewsItem[] = [
     link: { label: "Code", href: "https://github.com/MLee2324/posturechecker" },
   },
   {
+    date: "Apr 2026",
+    kind: "project",
+    text: "Completed my senior capstone, ASR Accent Bias Evaluation, comparing how automatic speech recognition systems perform across accents.",
+    link: { label: "Poster", href: "/posters/asr-accent-bias/" },
+  },
+  {
     date: "Jan 2026",
     kind: "research",
     text: "Joined the Utah NLP Lab (Prof. Ana Marasović) to build gold-standard tasks and evaluators for LLM-agent benchmarks.",

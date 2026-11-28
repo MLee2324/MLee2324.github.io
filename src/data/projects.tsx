@@ -49,6 +49,7 @@ const projects: Project[] = [
       "Used word error rate plus substitution, deletion, and insertion analysis to investigate dialect-related differences.",
     ],
     tech: ["Python", "NLP", "Speech recognition"],
+    poster: "/ASR_Capstone_Poster.pdf",
   },
   {
     id: "smart-blinds",
