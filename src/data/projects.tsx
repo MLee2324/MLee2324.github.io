@@ -10,8 +10,8 @@ export type Project = {
   tech: string[];
   github?: string;
   live?: string;
-  /** PDF in /public, e.g. "/ASR_Capstone_Poster.pdf". Adds Poster (view) and
-   * download buttons to the card. */
+  /** PDF in /public, e.g. "/ASR_Capstone_Poster.pdf". Adds a Poster button
+   * (opens the viewer page at /posters/<id>/) and a download button. */
   poster?: string;
   /** Used by the filter chips above the grid. */
   area: ProjectArea;

@@ -164,15 +164,13 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <div className="flex items-center gap-3">
               {project.poster && (
                 <span className="inline-flex items-center gap-1">
-                  <a
-                    href={project.poster}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/posters/${project.id}/`}
                     className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <FileText className="w-4 h-4" />
                     Poster
-                  </a>
+                  </Link>
                   <a
                     href={project.poster}
                     download
