@@ -3,7 +3,7 @@
 export const ABOUT = {
   // From the Research Interests section of the CV.
   intro:
-    "I am interested in exploring how AI-powered assistive technologies can improve accessibility and independence for people with disabilities, particularly blind and low-vision (BLV) individuals. I hope to apply computer vision, multimodal learning, and human-robot interaction to develop systems that help people better navigate their surroundings and perform everyday tasks with greater ease and confidence.",
+    "I am interested in exploring how AI-powered assistive technologies can improve accessibility and independence for people with disabilities, particularly blind and low-vision (BLV) individuals. I hope to apply computer vision, multimodal learning, and human-computer interaction to develop systems that help people better navigate their surroundings and perform everyday tasks with greater ease and confidence.",
   // "Right now" list, in the style of GitHub profile READMEs.
   now: [
     { emoji: "🔭", label: "Working on", text: "EgoBranch: step-by-step guidance from Meta Aria glasses and vision-language models (co-lead)" },

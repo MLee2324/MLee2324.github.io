@@ -3,7 +3,7 @@ const config = {
   description: {
     long: "Portfolio of Matthew Lee, a Computer Engineering student at the University of Utah exploring AI-powered assistive technology for blind and low-vision people.",
     short:
-      "Computer Engineering student exploring AI-powered assistive technology with computer vision, multimodal learning, and human-robot interaction.",
+      "Computer Engineering student exploring AI-powered assistive technology with computer vision, multimodal learning, and human-computer interaction.",
   },
   keywords: [
     "Matthew Lee",
@@ -15,7 +15,7 @@ const config = {
     "blind and low-vision",
     "computer vision",
     "multimodal learning",
-    "human-robot interaction",
+    "human-computer interaction",
     "machine learning",
     "Salt Lake City",
   ],
@@ -36,7 +36,7 @@ const config = {
     { emoji: "📍", text: "Salt Lake City · Open to relocation" },
   ],
   tagline:
-    "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-robot interaction.",
+    "Exploring AI-powered assistive technology for blind and low-vision people, using computer vision, multimodal learning, and human-computer interaction.",
   email: "matthewlee453@gmail.com",
   site: "https://mlee2324.github.io",
 

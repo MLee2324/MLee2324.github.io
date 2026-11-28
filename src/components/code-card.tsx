@@ -31,7 +31,7 @@ const LINES: Tok[][] = [
   [p("    "), ["def ", "kw"], ["research", "fn"], p("(self):")],
   [p("        "), ["return ", "kw"], p("["), s("computer vision"), p(",")],
   [p("                "), s("multimodal learning"), p(",")],
-  [p("                "), s("human-robot interaction"), p("]")],
+  [p("                "), s("human-computer interaction"), p("]")],
 ];
 
 export default function CodeCard() {

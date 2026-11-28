@@ -29,9 +29,9 @@ export const RESEARCH_AREAS: ResearchArea[] = [
     ],
   },
   {
-    id: "hri",
-    title: "Human-robot interaction",
-    body: "Studying when an assistant should guide, ask, or pause, and turning user feedback into executable robot behavior.",
+    id: "hci",
+    title: "Human-computer interaction",
+    body: "Studying when an assistant should guide, ask, or pause, and how people's feedback and corrections can shape what an AI system does.",
     work: [
       { label: "Board-game study", href: "#experience" },
       { label: "Robot Vibe-Coding", href: "#experience" },

@@ -37,7 +37,7 @@ function neofetch(narrow: boolean): Line[] {
     `Role:      Undergraduate Researcher @ SparkLab`,
     `Degree:    B.S. Computer Engineering, Univ. of Utah`,
     `Grad:      Dec 2026`,
-    `Research:  vision · multimodal · HRI`,
+    `Research:  vision · multimodal · HCI`,
     `Focus:     assistive AI for blind & low-vision people`,
     `Languages: English, Korean`,
     `Stack:     ${SKILLS.slice(0, 5).map((s) => s.name).join(", ")}`,
@@ -181,7 +181,7 @@ export default function Terminal({ className }: { className?: string }) {
             '    languages  = ["English", "Korean"]',
             "",
             "    def research(self):",
-            '        return ["computer vision", "multimodal learning", "human-robot interaction"]'
+            '        return ["computer vision", "multimodal learning", "human-computer interaction"]'
           );
         }
         if (/resume|cv/i.test(arg)) return run(/cv/i.test(arg) ? "cv" : "resume") as Line[];
