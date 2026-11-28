@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import SectionWrapper from "../ui/section-wrapper";
 import HeroPhoto from "../hero-photo";
 import TypingHeadline from "../typing-headline";
+import ListenButton from "../listen-button";
 
 const button =
   "inline-flex h-9 items-center gap-2 rounded-md border border-border px-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary/70";
@@ -27,7 +28,12 @@ const HeroSection = () => {
     <SectionWrapper id="hero" className="mx-auto max-w-5xl px-4 pb-6 pt-28 md:px-6 md:pb-8 md:pt-36">
       <div className="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
         <div className="min-w-0 max-w-2xl">
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">{config.author}</h1>
+          <h1
+            className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl"
+            data-speak={`${config.author}. ${config.headline} at the University of Utah.`}
+          >
+            {config.author}
+          </h1>
           <TypingHeadline phrases={config.typing} className="mt-3 min-h-[3.5rem] text-lg text-muted-foreground sm:min-h-[1.75rem]" />
           <ul className="mt-4 flex flex-wrap gap-2" aria-label="Status">
             {config.badges.map((b) => (
@@ -40,7 +46,9 @@ const HeroSection = () => {
               </li>
             ))}
           </ul>
-          <p className="mt-5 max-w-xl leading-relaxed text-foreground/85">{config.tagline}</p>
+          <p className="mt-5 max-w-xl leading-relaxed text-foreground/85" data-speak="">
+            {config.tagline}
+          </p>
           <div className="mt-7 flex flex-wrap gap-2.5">
             {links.map(({ label, href, Icon, external }, i) => (
               <Link
@@ -56,6 +64,7 @@ const HeroSection = () => {
                 {label}
               </Link>
             ))}
+            <ListenButton />
             {contacts.map(({ label, href, Icon, external }) => (
               <Link
                 key={label}

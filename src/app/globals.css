@@ -76,15 +76,22 @@
   }
 }
 
-/* GitHub heatmap cells grow in, column by column (delay set inline). */
-.gh-cell {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: cell-in 0.4s ease-out both;
+/* Hero photo: the scan line sweeps down once before the CV overlay appears. */
+.cv-scan {
+  animation: cv-scan 1.5s ease-in-out both;
+  filter: drop-shadow(0 0 12px rgb(52 211 153));
 }
-@keyframes cell-in {
-  from { opacity: 0; transform: scale(0.4); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes cv-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(1000px); }
+}
+
+/* "Listen to this page": the block being read aloud */
+.speaking {
+  border-radius: 0.5rem;
+  background: hsl(var(--accent-brand) / 0.16);
+  box-shadow: 0 0 0 6px hsl(var(--accent-brand) / 0.16), 0 0 0 8px hsl(var(--accent-brand) / 0.55);
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 /* ---- Motion ----

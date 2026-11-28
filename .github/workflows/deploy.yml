@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  # rebuild daily so the GitHub activity section stays current
-  schedule:
-    - cron: "17 9 * * *"
 
 permissions:
   contents: read
@@ -31,13 +28,6 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-
-      # public contributions, repos, and languages for the GitHub activity
-      # section; writes empty data (section hidden) if GitHub can't be reached
-      - name: Fetch GitHub activity data
-        run: node scripts/fetch-github.mjs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: pnpm build
         env:

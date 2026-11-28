@@ -18,7 +18,11 @@ const NewsSection = () => {
         {items.map((item) => {
           const external = item.link?.href.startsWith("http");
           return (
-            <li key={item.date + item.text} className="grid gap-1 py-3 sm:grid-cols-[7rem_1fr] sm:gap-6">
+            <li
+              key={item.date + item.text}
+              className="grid gap-1 py-3 sm:grid-cols-[7rem_1fr] sm:gap-6"
+              data-speak={`${item.date}. ${item.text}`}
+            >
               <time className="text-sm font-medium tabular-nums text-muted-foreground">{item.date}</time>
               <p className="leading-relaxed text-foreground/90">
                 {item.text}

@@ -6,7 +6,6 @@ import ExperienceSection from "@/components/sections/experience";
 import ProjectsSection from "@/components/sections/projects";
 import PublicationsSection from "@/components/sections/publications";
 import SkillsSection from "@/components/sections/skills";
-import GitHubActivitySection from "@/components/sections/github-activity";
 
 export default function MainPage() {
   return (
@@ -17,7 +16,6 @@ export default function MainPage() {
       <ResearchSection />
       <ExperienceSection />
       <ProjectsSection />
-      <GitHubActivitySection />
       <PublicationsSection />
       <SkillsSection />
     </main>

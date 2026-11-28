@@ -9,7 +9,6 @@ export const ABOUT = {
     { emoji: "🔭", label: "Working on", text: "EgoBranch: step-by-step guidance from Meta Aria glasses and vision-language models (co-lead)" },
     { emoji: "🤖", label: "Also on", text: "Robot Vibe-Coding: turning user feedback into Hello Robot Stretch 4 policies" },
     { emoji: "🌱", label: "Learning", text: "Computer vision, and robotics with PID control and sensor fusion" },
-    { emoji: "💬", label: "Ask me about", text: "Assistive tech, ROS 2, egocentric vision, ASR evaluation" },
     { emoji: "🌏", label: "Speaks", text: "English and Korean" },
   ],
   courses: [

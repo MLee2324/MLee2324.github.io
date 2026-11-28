@@ -8,7 +8,7 @@ const ResearchSection = () => (
     <SectionHeader id="research" title="Research areas" />
     <ul className="grid gap-8 md:grid-cols-3">
       {RESEARCH_AREAS.map((area) => (
-        <li key={area.id}>
+        <li key={area.id} data-speak={`Research area: ${area.title}. ${area.body}`}>
           <h3 className="font-semibold text-foreground">{area.title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{area.body}</p>
           <p className="mt-3 text-sm text-muted-foreground">

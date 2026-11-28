@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { config } from "@/data/config";
 import { cn } from "@/lib/utils";
+import CvOverlay from "./cv-overlay";
 
 // Shows config.photo once it has loaded; shows initials until then, or for
 // good if the photo is unset or missing. Loading through `new Image()` avoids
@@ -35,10 +36,13 @@ export default function HeroPhoto({
 
   return (
     <div className={cn("relative aspect-[4/5]", className)}>
-      <div className="h-full w-full overflow-hidden rounded-2xl border border-border bg-secondary/60">
+      <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border bg-secondary/60">
         {loaded && config.photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={config.photo} alt={config.author} className="h-full w-full object-cover" />
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={config.photo} alt={config.author} className="h-full w-full object-cover" />
+            <CvOverlay />
+          </>
         ) : (
           <div
             role="img"

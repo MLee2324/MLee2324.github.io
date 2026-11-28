@@ -10,10 +10,11 @@ import { sections, documents } from "./config";
 import ThemeToggle from "../theme/theme-toggle";
 import CommandPalette from "../command-palette";
 import AccessibilityMenu from "../accessibility-menu";
+import Terminal from "../terminal";
 
-// Inline links on wide screens skip "Skills" and "GitHub" to keep the bar
-// short; the menu and the search box still include them.
-const INLINE = sections.filter((s) => s.title !== "Skills" && s.title !== "GitHub");
+// Inline links on wide screens skip "Skills" to keep the bar short; the menu
+// and the search box still include it.
+const INLINE = sections.filter((s) => s.title !== "Skills");
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -69,6 +70,7 @@ const Header = () => {
 
         <div className="ml-2 flex items-center gap-1.5">
           <CommandPalette />
+          <Terminal />
           <AccessibilityMenu />
           <ThemeToggle />
           <button

@@ -25,10 +25,16 @@ pnpm build      # static site in ./out
 | `src/data/constants.ts` | Research experience and the Skills grid (logo, description, color) |
 | `src/data/projects.tsx` | Projects, tech, optional screenshot, code link, poster PDF |
 | `src/data/publications.ts` | Papers and talks. Optional abstract, BibTeX (generated if omitted), and "Selected" flag |
-| `src/data/github.json` | GitHub activity data, written at deploy time by `scripts/fetch-github.mjs` (the section hides while it's empty) |
+| `src/data/headshot-landmarks.json` | MediaPipe face box, face mesh, and pose keypoints for the hero photo's CV overlay. Re-run MediaPipe on a new photo to regenerate it |
 | `public/` | Résumé, CV, and poster PDFs |
 
 The headshot is `public/assets/me.jpg` (`config.photo`; set it to `null` to show initials instead). Skill logos live in `public/assets/skills/`.
+
+## Extras
+
+- **CV overlay** on the hero photo (`src/components/cv-overlay.tsx`), drawn from real MediaPipe output. Visitors can toggle it.
+- **Listen** button (`src/components/listen-button.tsx`) reads every element marked `data-speak` aloud with the browser's speech synthesis.
+- **Terminal** (`src/components/terminal.tsx`): press <kbd>`</kbd> or use the header button. Commands are built from the data files.
 
 ## Deploy
 
