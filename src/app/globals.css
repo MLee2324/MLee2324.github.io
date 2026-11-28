@@ -147,3 +147,24 @@ html[data-underline-links] a {
   text-underline-offset: 4px;
 }
 
+
+/* Scroll-in reveal (see src/lib/reveal.ts). Content is visible by default;
+   it starts hidden only once the inline layout script sets data-reveal. */
+.reveal {
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  transition-delay: var(--reveal-delay, 0s);
+}
+html[data-reveal] .reveal:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+html[data-motion="off"] .reveal {
+  transform: none !important;
+  transition-property: opacity;
+}
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

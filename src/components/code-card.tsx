@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 // "Code mode" bio card: the About facts written as a small Python class, in
 // the style of GitHub profile READMEs. Colors use the site's tokens so it
 // works in light and dark mode. It's real text, so screen readers read it.
@@ -34,6 +36,9 @@ const LINES: Tok[][] = [
   [p("                "), s("human-computer interaction"), p("]")],
 ];
 
+// Spaces at the start of a line, so wrapped text can line up under its code.
+const indentOf = (line: Tok[]) => line.map(([t]) => t).join("").match(/^ */)![0].length;
+
 export default function CodeCard() {
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-secondary/30">
@@ -45,20 +50,32 @@ export default function CodeCard() {
         </span>
         <span className="ml-1 font-mono text-xs text-muted-foreground">matthew_lee.py</span>
       </figcaption>
-      <pre className="overflow-x-auto p-4 font-mono text-[12.5px] leading-6" data-lenis-prevent>
+      {/* Long lines soft-wrap on narrow screens, like an editor's word wrap:
+          the continuation is indented 4 columns past the line's own indent.
+          On wide screens every line fits, so they stay unwrapped. */}
+      <pre className="p-3 font-mono lg:overflow-x-auto text-[11.5px] leading-6 sm:p-4 sm:text-[12.5px]">
         <code>
-          {LINES.map((line, i) => (
-            <span key={i} className="block">
-              <span aria-hidden className="mr-4 inline-block w-4 select-none text-right text-muted-foreground/50">
-                {i + 1}
-              </span>
-              {line.map(([text, kind], j) => (
-                <span key={j} className={C[kind]}>
-                  {text}
+          {LINES.map((line, i) => {
+            const hang = `${indentOf(line) + 4}ch`;
+            return (
+              <span key={i} className="flex">
+                <span aria-hidden className="mr-3 w-4 shrink-0 select-none text-right text-muted-foreground/50 sm:mr-4">
+                  {i + 1}
                 </span>
-              ))}
-            </span>
-          ))}
+                <span
+                  className="min-w-0 whitespace-pre-wrap break-words pl-[var(--hang)] -indent-[var(--hang)] lg:whitespace-pre lg:pl-0 lg:indent-0"
+                  style={{ "--hang": hang } as CSSProperties}
+                >
+                  {line.map(([text, kind], j) => (
+                    <span key={j} className={C[kind]}>
+                      {text}
+                    </span>
+                  ))}
+                  {line.length === 1 && line[0][0] === "" && "\u200b"}
+                </span>
+              </span>
+            );
+          })}
         </code>
       </pre>
     </figure>

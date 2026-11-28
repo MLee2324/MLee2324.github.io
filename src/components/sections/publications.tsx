@@ -1,12 +1,13 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Check, Copy, Star } from "lucide-react";
 import { PUBLICATIONS, Publication, PublicationType } from "@/data/publications";
 import { config } from "@/data/config";
 import { toBibtex } from "@/lib/bibtex";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/lib/reveal";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
@@ -72,12 +73,7 @@ function PublicationCard({ pub, index }: { pub: Publication; index: number }) {
   };
 
   return (
-    <motion.li
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-      viewport={{ once: true, margin: "-50px" }}
-    >
+    <li className="reveal" style={{ "--reveal-delay": `${index * 0.08}s` } as CSSProperties}>
       <Card className="bg-white/70 dark:bg-black/60 backdrop-blur-sm border-border hover:border-primary/20 transition-colors duration-300">
         <CardContent className="grid gap-4 p-6 sm:grid-cols-[7rem_1fr]">
           <div className="flex items-start gap-2 sm:flex-col">
@@ -159,17 +155,19 @@ function PublicationCard({ pub, index }: { pub: Publication; index: number }) {
           </div>
         </CardContent>
       </Card>
-    </motion.li>
+    </li>
   );
 }
 
 const PublicationsSection = () => {
+  const ref = useRef<HTMLOListElement>(null);
+  useReveal(ref);
   // The section (and its nav link) stays hidden until the first entry is added.
   if (PUBLICATIONS.length === 0) return null;
   return (
     <SectionWrapper id="publications" className="mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
       <SectionHeader id="publications" title="Publications" />
-      <ol className="flex flex-col gap-4">
+      <ol ref={ref} className="flex flex-col gap-4">
         {PUBLICATIONS.map((pub, index) => (
           <PublicationCard key={pub.id} pub={pub} index={index} />
         ))}
