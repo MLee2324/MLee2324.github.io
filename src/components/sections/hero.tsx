@@ -13,6 +13,10 @@ const HeroSection = () => {
   const links = [
     ...(config.resume ? [{ label: "Résumé", href: "/resume/", Icon: FileText, external: false }] : []),
     ...(config.cv ? [{ label: "CV", href: "/cv/", Icon: FileText, external: false }] : []),
+  ];
+  // contact links show only their icon; the name is the tooltip and the
+  // screen-reader label
+  const contacts = [
     { label: "Email", href: `mailto:${config.email}`, Icon: Mail, external: false },
     ...(config.social.github ? [{ label: "GitHub", href: config.social.github, Icon: SiGithub, external: true }] : []),
     ...(config.social.linkedin ? [{ label: "LinkedIn", href: config.social.linkedin, Icon: SiLinkedin, external: true }] : []),
@@ -40,6 +44,18 @@ const HeroSection = () => {
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {label}
+              </Link>
+            ))}
+            {contacts.map(({ label, href, Icon, external }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                title={label}
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                className={cn(button, "w-9 justify-center px-0")}
+              >
+                <Icon className="h-4 w-4" aria-hidden />
               </Link>
             ))}
           </div>
